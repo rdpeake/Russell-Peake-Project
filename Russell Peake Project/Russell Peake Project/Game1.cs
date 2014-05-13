@@ -42,7 +42,7 @@ namespace Russell_Peake_Project
 
             //create 3 Rectangles
             FullScreen = GraphicsDevice.Viewport.Bounds;
-            int scaleFactor = 4;
+            int scaleFactor = 3;
             PIP1 = new Rectangle(FullScreen.Width - FullScreen.Width / scaleFactor, 0, FullScreen.Width / scaleFactor, FullScreen.Height / scaleFactor);
             PIP2 = new Rectangle(FullScreen.Width - FullScreen.Width / scaleFactor, FullScreen.Height - FullScreen.Height / scaleFactor, FullScreen.Width / scaleFactor, FullScreen.Height / scaleFactor);
 
