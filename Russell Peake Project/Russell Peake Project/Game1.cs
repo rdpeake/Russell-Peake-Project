@@ -100,27 +100,32 @@ namespace Russell_Peake_Project
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            //set up 3 methods which draws the three camera modes and use a variable to change between the modes
+            //after setting render target (instead of clears)
+
             //Draw PIP1
             GraphicsDevice.SetRenderTarget(RT_PIP1);
             GraphicsDevice.Clear(Color.Black);
+
+            // TODO: Add PIP1 drawing handling here
 
             //Draw PIP2
             GraphicsDevice.SetRenderTarget(RT_PIP2);
             GraphicsDevice.Clear(Color.White);
 
+            // TODO Add PIP2 drawing handling here
+
             //Draw full screen
             GraphicsDevice.SetRenderTarget(null);
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            // TODO: Add your drawing code here
 
             //Draw PIP to full screen
             spriteBatch.Begin();
             spriteBatch.Draw(RT_PIP1, PIP1, Color.White);
             spriteBatch.Draw(RT_PIP2, PIP2, Color.White);
             spriteBatch.End();
-
-
-            // TODO: Add your drawing code here
 
             base.Draw(gameTime);
         }
