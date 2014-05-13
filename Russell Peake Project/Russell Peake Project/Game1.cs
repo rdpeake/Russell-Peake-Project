@@ -19,6 +19,8 @@ namespace Russell_Peake_Project
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        Viewport FullScreen, PIP1, PIP2;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -36,6 +38,11 @@ namespace Russell_Peake_Project
             // TODO: Add your initialization logic here
 
             base.Initialize();
+
+            //create 3 viewports
+            FullScreen = new Viewport(0, 0, GraphicsDevice.DisplayMode.Width, GraphicsDevice.DisplayMode.Height);
+            PIP1 = new Viewport(GraphicsDevice.DisplayMode.Width - GraphicsDevice.DisplayMode.Width / 8, 0, GraphicsDevice.DisplayMode.Width / 8, GraphicsDevice.DisplayMode.Height / 8);
+            PIP2 = new Viewport(GraphicsDevice.DisplayMode.Width - GraphicsDevice.DisplayMode.Width / 8, GraphicsDevice.DisplayMode.Height - GraphicsDevice.DisplayMode.Height / 8, GraphicsDevice.DisplayMode.Width / 8, GraphicsDevice.DisplayMode.Height / 8);
         }
 
         /// <summary>
@@ -81,7 +88,14 @@ namespace Russell_Peake_Project
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            GraphicsDevice.Viewport = FullScreen;
             GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            GraphicsDevice.Viewport = PIP1;
+            GraphicsDevice.Clear(Color.Black);
+
+            GraphicsDevice.Viewport = PIP2;
+            GraphicsDevice.Clear(Color.White);
 
             // TODO: Add your drawing code here
 
