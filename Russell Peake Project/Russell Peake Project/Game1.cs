@@ -19,7 +19,7 @@ namespace Russell_Peake_Project
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Rectangle FullScreen, PIP1, PIP2;
+        RectangleF FullScreen, PIP1, PIP2;
         RenderTarget2D RT_PIP1, RT_PIP2;
 
         public Game1()
@@ -42,9 +42,9 @@ namespace Russell_Peake_Project
 
             //create 3 Rectangles
             FullScreen = GraphicsDevice.Viewport.Bounds;
-            int scaleFactor = 3;
-            PIP1 = new Rectangle(FullScreen.Width - FullScreen.Width / scaleFactor, 0, FullScreen.Width / scaleFactor, FullScreen.Height / scaleFactor);
-            PIP2 = new Rectangle(FullScreen.Width - FullScreen.Width / scaleFactor, FullScreen.Height - FullScreen.Height / scaleFactor, FullScreen.Width / scaleFactor, FullScreen.Height / scaleFactor);
+            float scaleFactor = 2.5f;
+            PIP1 = new RectangleF(FullScreen.Width - FullScreen.Width / scaleFactor, 0, FullScreen.Width / scaleFactor, FullScreen.Height / scaleFactor);
+            PIP2 = new RectangleF(FullScreen.Width - FullScreen.Width / scaleFactor, FullScreen.Height - FullScreen.Height / scaleFactor, FullScreen.Width / scaleFactor, FullScreen.Height / scaleFactor);
 
             //create 2 render targets
             RT_PIP1 = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight);
