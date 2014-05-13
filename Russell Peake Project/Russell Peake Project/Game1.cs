@@ -19,7 +19,8 @@ namespace Russell_Peake_Project
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Viewport FullScreen, PIP1, PIP2;
+        Rectangle FullScreen, PIP1, PIP2;
+        RenderTarget2D RT_PIP1, RT_PIP2;
 
         public Game1()
         {
@@ -39,10 +40,14 @@ namespace Russell_Peake_Project
 
             base.Initialize();
 
-            //create 3 viewports
-            FullScreen = GraphicsDevice.Viewport;
-            PIP1 = new Viewport(FullScreen.Width - FullScreen.Width / 8, 0, FullScreen.Width / 8, FullScreen.Height / 8);
-            PIP2 = new Viewport(FullScreen.Width - FullScreen.Width / 8, FullScreen.Height - FullScreen.Height / 8, FullScreen.Width / 8, FullScreen.Height / 8);
+            //create 3 Rectangles
+            FullScreen = GraphicsDevice.Viewport.Bounds;
+            PIP1 = new Rectangle(FullScreen.Width - FullScreen.Width / 8, 0, FullScreen.Width / 8, FullScreen.Height / 8);
+            PIP2 = new Rectangle(FullScreen.Width - FullScreen.Width / 8, FullScreen.Height - FullScreen.Height / 8, FullScreen.Width / 8, FullScreen.Height / 8);
+
+            //create 2 render targets
+            RT_PIP1 = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight);
+            RT_PIP2 = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight);
         }
 
         /// <summary>
@@ -88,14 +93,25 @@ namespace Russell_Peake_Project
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Viewport = FullScreen;
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            GraphicsDevice.Viewport = PIP1;
+            //Draw PIP1
+            GraphicsDevice.SetRenderTarget(RT_PIP1);
             GraphicsDevice.Clear(Color.Black);
 
-            GraphicsDevice.Viewport = PIP2;
-            //GraphicsDevice.Clear(Color.White);
+            //Draw PIP2
+            GraphicsDevice.SetRenderTarget(RT_PIP2);
+            GraphicsDevice.Clear(Color.White);
+
+            //Draw full screen
+            GraphicsDevice.SetRenderTarget(null);
+            GraphicsDevice.Clear(Color.CornflowerBlue);
+
+
+            //Draw PIP to full screen
+            spriteBatch.Begin();
+            spriteBatch.Draw(RT_PIP1, PIP1, Color.White);
+            spriteBatch.Draw(RT_PIP2, PIP2, Color.White);
+            spriteBatch.End();
+
 
             // TODO: Add your drawing code here
 
