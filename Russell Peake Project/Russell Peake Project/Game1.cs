@@ -40,9 +40,9 @@ namespace Russell_Peake_Project
             base.Initialize();
 
             //create 3 viewports
-            FullScreen = new Viewport(0, 0, GraphicsDevice.DisplayMode.Width, GraphicsDevice.DisplayMode.Height);
-            PIP1 = new Viewport(GraphicsDevice.DisplayMode.Width - GraphicsDevice.DisplayMode.Width / 8, 0, GraphicsDevice.DisplayMode.Width / 8, GraphicsDevice.DisplayMode.Height / 8);
-            PIP2 = new Viewport(GraphicsDevice.DisplayMode.Width - GraphicsDevice.DisplayMode.Width / 8, GraphicsDevice.DisplayMode.Height - GraphicsDevice.DisplayMode.Height / 8, GraphicsDevice.DisplayMode.Width / 8, GraphicsDevice.DisplayMode.Height / 8);
+            FullScreen = GraphicsDevice.Viewport;
+            PIP1 = new Viewport(FullScreen.Width - FullScreen.Width / 8, 0, FullScreen.Width / 8, FullScreen.Height / 8);
+            PIP2 = new Viewport(FullScreen.Width - FullScreen.Width / 8, FullScreen.Height - FullScreen.Height / 8, FullScreen.Width / 8, FullScreen.Height / 8);
         }
 
         /// <summary>
