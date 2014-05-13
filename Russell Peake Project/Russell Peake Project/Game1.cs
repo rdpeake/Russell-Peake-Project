@@ -11,6 +11,13 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Russell_Peake_Project
 {
+    enum ActiveCamera
+    {
+        Follow = 1,
+        Free,
+        Aerial
+    }
+
     /// <summary>
     /// This is the main type for your game
     /// </summary>
@@ -21,6 +28,8 @@ namespace Russell_Peake_Project
 
         Rectangle FullScreen, PIP1, PIP2;
         RenderTarget2D RT_PIP1, RT_PIP2;
+        ActiveCamera activeCamera = ActiveCamera.Free;
+        MouseState lastMouse;
 
         public Game1()
         {
@@ -89,7 +98,41 @@ namespace Russell_Peake_Project
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || keyState.IsKeyDown(Keys.Escape))
                 this.Exit();
 
-            // TODO: Add your update logic here
+            // TODO: complete keyboard logic here
+            foreach (Keys k in keyState.GetPressedKeys()) {
+                switch (k)
+                {
+                    case Keys.D1:
+                    case Keys.D2:
+                    case Keys.D3:
+                        activeCamera = (ActiveCamera)(k - Keys.D0);
+                        break;
+                    case Keys.W: //free camera up
+                    case Keys.Up:
+
+                        break;
+                    case Keys.S: //free camera down
+                    case Keys.Down:
+
+                        break;
+                    case Keys.A: //free camera left
+                    case Keys.Left:
+
+                        break;
+                    case Keys.D: //free camera right
+                    case Keys.Right:
+
+                        break;
+                    case Keys.Enter: //Reset
+
+                        break;
+                    case Keys.Space: //Start/Stop
+
+                        break;
+                }
+            }
+
+            // TODO: comple mouse logic here
 
             base.Update(gameTime);
         }
@@ -105,21 +148,44 @@ namespace Russell_Peake_Project
 
             //Draw PIP1
             GraphicsDevice.SetRenderTarget(RT_PIP1);
-            GraphicsDevice.Clear(Color.Black);
+            if (activeCamera != ActiveCamera.Follow)
+            {
+                drawFollowCamera();
+            }
+            else
+            {
+                drawFreeCamera();
+            }
 
             // TODO: Add PIP1 drawing handling here
 
             //Draw PIP2
             GraphicsDevice.SetRenderTarget(RT_PIP2);
-            GraphicsDevice.Clear(Color.White);
+            if (activeCamera != ActiveCamera.Aerial)
+            {
+                drawAerialCamera();
+            }
+            else
+            {
+                drawFreeCamera();
+            }
 
             // TODO Add PIP2 drawing handling here
 
             //Draw full screen
             GraphicsDevice.SetRenderTarget(null);
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
+            switch (activeCamera)
+            {
+                case ActiveCamera.Aerial:
+                    drawAerialCamera();
+                    break;
+                case ActiveCamera.Follow:
+                    drawFollowCamera();
+                    break;
+                case ActiveCamera.Free:
+                    drawFreeCamera();
+                    break;
+            }
 
             //Draw PIP to full screen
             spriteBatch.Begin();
@@ -128,6 +194,21 @@ namespace Russell_Peake_Project
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        private void drawFreeCamera()
+        {
+            GraphicsDevice.Clear(Color.CornflowerBlue);
+        }
+
+        private void drawFollowCamera()
+        {
+            GraphicsDevice.Clear(Color.Black);
+        }
+
+        private void drawAerialCamera()
+        {
+            GraphicsDevice.Clear(Color.White);
         }
     }
 }
