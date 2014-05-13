@@ -95,7 +95,7 @@ namespace Russell_Peake_Project
             GraphicsDevice.Clear(Color.Black);
 
             GraphicsDevice.Viewport = PIP2;
-            GraphicsDevice.Clear(Color.White);
+            //GraphicsDevice.Clear(Color.White);
 
             // TODO: Add your drawing code here
 
