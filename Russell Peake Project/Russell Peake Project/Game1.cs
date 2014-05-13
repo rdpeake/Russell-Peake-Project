@@ -42,8 +42,9 @@ namespace Russell_Peake_Project
 
             //create 3 Rectangles
             FullScreen = GraphicsDevice.Viewport.Bounds;
-            PIP1 = new Rectangle(FullScreen.Width - FullScreen.Width / 8, 0, FullScreen.Width / 8, FullScreen.Height / 8);
-            PIP2 = new Rectangle(FullScreen.Width - FullScreen.Width / 8, FullScreen.Height - FullScreen.Height / 8, FullScreen.Width / 8, FullScreen.Height / 8);
+            int scaleFactor = 4;
+            PIP1 = new Rectangle(FullScreen.Width - FullScreen.Width / scaleFactor, 0, FullScreen.Width / scaleFactor, FullScreen.Height / scaleFactor);
+            PIP2 = new Rectangle(FullScreen.Width - FullScreen.Width / scaleFactor, FullScreen.Height - FullScreen.Height / scaleFactor, FullScreen.Width / scaleFactor, FullScreen.Height / scaleFactor);
 
             //create 2 render targets
             RT_PIP1 = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight);
