@@ -37,7 +37,7 @@ namespace Russell_Peake_Project
         Camera FreeMove, Follow, MiniMap;
         private bool pause = false;
 
-        public Model model;
+        public Revolving_ball ball;
 
         const int mouseCenterX = 100, mouseCenterY = 100;
         MouseState preCaptureMouse;
@@ -126,7 +126,7 @@ namespace Russell_Peake_Project
             MiniMap.MaxPitch = MathHelper.ToRadians(89.9f);
 
             //load model
-            model = Content.Load<Model>("sphere");
+            ball = new Revolving_ball(this);
 
             //TODO load elements!
         }
