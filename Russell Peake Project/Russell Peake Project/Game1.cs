@@ -28,6 +28,7 @@ namespace Russell_Peake_Project
 
         Rectangle FullScreen, PIP1, PIP2;
         RenderTarget2D RT_PIP1, RT_PIP2;
+        bool showPIP = true;
         ActiveCamera activeCamera = ActiveCamera.Free;
         public Matrix ProjectionMatrix;
         Camera FreeMove, Follow, MiniMap;
@@ -140,6 +141,8 @@ namespace Russell_Peake_Project
                     case Keys.D3:
                         activeCamera = (ActiveCamera)(k - Keys.D0);
                         break;
+                    case Keys.P:
+                        showPIP = !showPIP;
                     case Keys.W: //free camera up
                     case Keys.Up:
 
@@ -224,8 +227,11 @@ namespace Russell_Peake_Project
 
             //Draw PIP to full screen
             spriteBatch.Begin();
-            spriteBatch.Draw(RT_PIP1, PIP1, Color.White);
-            spriteBatch.Draw(RT_PIP2, PIP2, Color.White);
+            if (showPIP)
+            {
+                spriteBatch.Draw(RT_PIP1, PIP1, Color.White);
+                spriteBatch.Draw(RT_PIP2, PIP2, Color.White);
+            }
             //TODO add HUD style code here
             spriteBatch.End();
 
