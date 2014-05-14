@@ -230,8 +230,8 @@ namespace Russell_Peake_Project
 
             this.CaptureMouse = curMouse.RightButton == ButtonState.Pressed;
 
-            FreeMove.Pitch += mouseDelta.X * DefaultMouseSensitivity;
-            FreeMove.Yaw -= mouseDelta.Y * DefaultMouseSensitivity;
+            FreeMove.Pitch += mouseDelta.Y * DefaultMouseSensitivity;
+            FreeMove.Yaw -= mouseDelta.X * DefaultMouseSensitivity;
 
             if (captureMouse)
             {
