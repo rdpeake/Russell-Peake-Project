@@ -114,7 +114,7 @@ namespace Russell_Peake_Project
             FreeMove.MaxPitch = MathHelper.ToRadians(89.9f);
 
 
-            Follow = new Camera(this, new Vector3(2, 2, 0), MathHelper.ToRadians(45f), MathHelper.ToRadians(0f));
+            Follow = new Camera(this, new Vector3(2, 2, 0), MathHelper.ToRadians(0f), MathHelper.ToRadians(0f));
             Follow.UpAxis = Vector3.UnitZ;
             Follow.ForwardAxis = -Vector3.UnitX;
             Follow.MinPitch = MathHelper.ToRadians(-89.9f);
@@ -274,7 +274,7 @@ namespace Russell_Peake_Project
                 Vector3 direction = ball.location - lastPosition;
                 direction.Normalize();
                 Follow.Direction = direction;
-                Follow.Position = -direction * 1f;
+                Follow.Position = -direction * 20f;
 
                 //remember new position
                 lastPosition = ball.location;
