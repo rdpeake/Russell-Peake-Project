@@ -143,6 +143,7 @@ namespace Russell_Peake_Project
                         break;
                     case Keys.P:
                         showPIP = !showPIP;
+                        break;
                     case Keys.W: //free camera up
                     case Keys.Up:
 
