@@ -23,6 +23,9 @@ namespace Russell_Peake_Project
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        float movementSpeed = 1f;
+
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -129,6 +132,9 @@ namespace Russell_Peake_Project
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
+            float delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Vector3 moveVector = Vector3.Zero;
+
             KeyboardState keyState = Keyboard.GetState();
             if (lastKey == null)
             {
@@ -154,19 +160,19 @@ namespace Russell_Peake_Project
                         break;
                     case Keys.W: //free camera up
                     case Keys.Up:
-
+                        moveVector.X -= 1f;
                         break;
                     case Keys.S: //free camera down
                     case Keys.Down:
-
+                        moveVector.X = 1f;
                         break;
                     case Keys.A: //free camera left
                     case Keys.Left:
-
+                        moveVector.Y -= 1f;
                         break;
                     case Keys.D: //free camera right
                     case Keys.Right:
-
+                        moveVector.Y = 1f;
                         break;
                     case Keys.Enter: //Reset
                         if (lastKey.IsKeyUp(Keys.Enter))
@@ -184,6 +190,17 @@ namespace Russell_Peake_Project
             }
 
             // TODO: comple mouse logic here
+
+            //_camera.Pitch += _input.MouseDelta.Y * _input.MouseSensitivity;
+            //_camera.Yaw -= _input.MouseDelta.X * _input.MouseSensitivity;
+
+            //freemove camera logic
+            if (moveVector != Vector3.Zero)
+            {
+                moveVector.Normalize();
+                moveVector *= movementSpeed * delta;
+                FreeMove.Move(moveVector);
+            }
 
             //TODO: add follow camera update logic here
 
