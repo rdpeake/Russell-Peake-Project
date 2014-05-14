@@ -80,7 +80,7 @@ namespace Russell_Peake_Project
             FreeMove.MaxPitch = MathHelper.ToRadians(89.9f);
 
 
-            Follow = new Camera(this, new Vector3(5, 5, 0), MathHelper.ToRadians(90f), -MathHelper.ToRadians(20f));
+            Follow = new Camera(this, new Vector3(5, 5, 0), MathHelper.ToRadians(70f), MathHelper.ToRadians(20f));
             Follow.UpAxis = Vector3.UnitZ;
             Follow.ForwardAxis = -Vector3.UnitX;
             Follow.MinPitch = MathHelper.ToRadians(-89.9f);
