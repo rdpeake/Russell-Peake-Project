@@ -276,7 +276,7 @@ namespace Russell_Peake_Project
                 Follow.ForwardAxis = direction;
                 Follow.Position = direction;
                 Follow.Move(-direction * 5f);
-                Follow.Position += Follow.UpAxis + Follow.SideAxis;
+                Follow.Position += 2*Follow.UpAxis + Follow.SideAxis;
                 Follow.Pitch = MathHelper.ToRadians(30f);
 
                 //remember new position
