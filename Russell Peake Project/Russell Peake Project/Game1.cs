@@ -275,7 +275,7 @@ namespace Russell_Peake_Project
                 direction.Normalize();
                 Follow.ForwardAxis = direction;
                 Follow.Position = direction;
-                Follow.Move(-direction * 10f);
+                Follow.Move(-direction * 5f);
 
                 //remember new position
                 lastPosition = ball.location;
