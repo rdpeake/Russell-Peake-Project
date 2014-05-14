@@ -277,7 +277,7 @@ namespace Russell_Peake_Project
                 Follow.Position = direction;
                 Follow.Move(-direction * 5f);
                 Follow.Position += Follow.UpAxis;
-                //Follow.Move(new Vector3(0, 2, 0));
+                Follow.Move(new Vector3(2, 0, 0));
 
                 //remember new position
                 lastPosition = ball.location;
