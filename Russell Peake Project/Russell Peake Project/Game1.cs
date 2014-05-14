@@ -36,6 +36,7 @@ namespace Russell_Peake_Project
         public Model model;
 
         MouseState lastMouse;
+        KeyboardState lastKey;
 
         public Game1()
         {
@@ -129,6 +130,10 @@ namespace Russell_Peake_Project
         {
             // Allows the game to exit
             KeyboardState keyState = Keyboard.GetState();
+            if (lastKey == null)
+            {
+                lastKey = keyState;
+            }
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || keyState.IsKeyDown(Keys.Escape))
                 this.Exit();
 
@@ -142,7 +147,10 @@ namespace Russell_Peake_Project
                         activeCamera = (ActiveCamera)(k - Keys.D0);
                         break;
                     case Keys.P:
-                        showPIP = !showPIP;
+                        if (lastKey.IsKeyUp(Keys.P))
+                        {
+                            showPIP = !showPIP; //only togle on first key press
+                        }
                         break;
                     case Keys.W: //free camera up
                     case Keys.Up:
@@ -161,10 +169,16 @@ namespace Russell_Peake_Project
 
                         break;
                     case Keys.Enter: //Reset
+                        if (lastKey.IsKeyUp(Keys.Enter))
+                        {
 
+                        }
                         break;
                     case Keys.Space: //Start/Stop
+                        if (lastKey.IsKeyUp(Keys.Space))
+                        {
 
+                        }
                         break;
                 }
             }
@@ -175,6 +189,8 @@ namespace Russell_Peake_Project
 
             //TODO consider adding statistic update code here like FPS
 
+            //store last key state
+            lastKey = keyState;
             base.Update(gameTime);
         }
 
