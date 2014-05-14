@@ -239,22 +239,25 @@ namespace Russell_Peake_Project
                     captureMouse ? curMouse.Y - mouseCenterY : 0
                 );
 
-            this.CaptureMouse = curMouse.RightButton == ButtonState.Pressed;
+            if (activeCamera == ActiveCamera.Free || showPIP)
+            {
+                this.CaptureMouse = curMouse.RightButton == ButtonState.Pressed;
 
-            FreeMove.Pitch -= mouseDelta.Y * DefaultMouseSensitivity;
-            FreeMove.Yaw -= mouseDelta.X * DefaultMouseSensitivity;
+                FreeMove.Pitch -= mouseDelta.Y * DefaultMouseSensitivity;
+                FreeMove.Yaw -= mouseDelta.X * DefaultMouseSensitivity;
 
+                //freemove camera logic
+                if (moveVector != Vector3.Zero)
+                {
+                    moveVector.Normalize();
+                    moveVector *= movementSpeed * delta;
+                    FreeMove.Move(moveVector);
+                }
+            }
+            
             if (captureMouse)
             {
                 Mouse.SetPosition(mouseCenterX, mouseCenterY);
-            }
-
-            //freemove camera logic
-            if (moveVector != Vector3.Zero)
-            {
-                moveVector.Normalize();
-                moveVector *= movementSpeed * delta;
-                FreeMove.Move(moveVector);
             }
 
             //TODO: add follow camera update logic here
