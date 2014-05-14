@@ -29,6 +29,11 @@ namespace Russell_Peake_Project
         Rectangle FullScreen, PIP1, PIP2;
         RenderTarget2D RT_PIP1, RT_PIP2;
         ActiveCamera activeCamera = ActiveCamera.Free;
+        public Matrix ProjectionMatrix;
+        Camera FreeMove, Follow, MiniMap;
+
+        public Model model;
+
         MouseState lastMouse;
 
         public Game1()
@@ -63,6 +68,34 @@ namespace Russell_Peake_Project
             //create 2 render targets
             RT_PIP1 = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight);
             RT_PIP2 = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight);
+
+            //set up projection matrix
+            ProjectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45f), GraphicsDevice.Viewport.AspectRatio, 0.01f, 100.0f);
+
+            //create cameras
+            FreeMove = new Camera(this, new Vector3(5, 0, 5));
+            FreeMove.UpAxis = Vector3.UnitZ;
+            FreeMove.ForwardAxis = -Vector3.UnitX;
+            FreeMove.MinPitch = MathHelper.ToRadians(-89.9f);
+            FreeMove.MaxPitch = MathHelper.ToRadians(89.9f);
+
+
+            Follow = new Camera(this, new Vector3(5, 0, 5));
+            Follow.UpAxis = Vector3.UnitZ;
+            Follow.ForwardAxis = -Vector3.UnitX;
+            Follow.MinPitch = MathHelper.ToRadians(-89.9f);
+            Follow.MaxPitch = MathHelper.ToRadians(89.9f);
+
+            MiniMap = new Camera(this, new Vector3(5, 0, 5));
+            MiniMap.UpAxis = Vector3.UnitZ;
+            MiniMap.ForwardAxis = -Vector3.UnitX;
+            MiniMap.MinPitch = MathHelper.ToRadians(-89.9f);
+            MiniMap.MaxPitch = MathHelper.ToRadians(89.9f);
+
+            //load model
+            model = Content.Load<Model>("sphere");
+
+            //TODO load elements!
         }
 
         /// <summary>
@@ -134,6 +167,10 @@ namespace Russell_Peake_Project
 
             // TODO: comple mouse logic here
 
+            //TODO: add follow camera update logic here
+
+            //TODO consider adding statistic update code here like FPS
+
             base.Update(gameTime);
         }
 
@@ -143,9 +180,6 @@ namespace Russell_Peake_Project
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            //set up 3 methods which draws the three camera modes and use a variable to change between the modes
-            //after setting render target (instead of clears)
-
             //Draw PIP1
             GraphicsDevice.SetRenderTarget(RT_PIP1);
             if (activeCamera != ActiveCamera.Follow)
@@ -157,8 +191,6 @@ namespace Russell_Peake_Project
                 drawFreeCamera();
             }
 
-            // TODO: Add PIP1 drawing handling here
-
             //Draw PIP2
             GraphicsDevice.SetRenderTarget(RT_PIP2);
             if (activeCamera != ActiveCamera.Aerial)
@@ -169,8 +201,6 @@ namespace Russell_Peake_Project
             {
                 drawFreeCamera();
             }
-
-            // TODO Add PIP2 drawing handling here
 
             //Draw full screen
             GraphicsDevice.SetRenderTarget(null);
@@ -191,6 +221,7 @@ namespace Russell_Peake_Project
             spriteBatch.Begin();
             spriteBatch.Draw(RT_PIP1, PIP1, Color.White);
             spriteBatch.Draw(RT_PIP2, PIP2, Color.White);
+            //TODO add HUD style code here
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -199,16 +230,25 @@ namespace Russell_Peake_Project
         private void drawFreeCamera()
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            //TODO add free camera drawing code here
+            FreeMove.draw();
         }
 
         private void drawFollowCamera()
         {
             GraphicsDevice.Clear(Color.Black);
+
+            //TODO add follow camera drawing here
+            Follow.draw();
         }
 
         private void drawAerialCamera()
         {
             GraphicsDevice.Clear(Color.White);
+
+            //TODO add aerial camera drawing here.
+            MiniMap.draw();
         }
     }
 }
