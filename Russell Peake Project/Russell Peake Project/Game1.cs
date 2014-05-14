@@ -272,7 +272,7 @@ namespace Russell_Peake_Project
                 }
                 //TODO: add follow camera update logic here
                 Vector3 direction = ball.location - lastPosition;
-                direction.Normalize();
+                //direction.Normalize();
                 Follow.Direction = direction;
                 Follow.Position = -direction * 10f;
 
