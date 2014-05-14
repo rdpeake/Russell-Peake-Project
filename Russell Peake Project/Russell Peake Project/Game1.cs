@@ -24,7 +24,7 @@ namespace Russell_Peake_Project
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         float movementSpeed = 1f;
-
+        const float DefaultMouseSensitivity = 0.005f;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -41,7 +41,30 @@ namespace Russell_Peake_Project
         const int mouseCenterX = 100, mouseCenterY = 100;
         MouseState preCaptureMouse;
         bool captureMouse = false;
-        MouseState lastMouse;
+
+        public bool CaptureMouse
+        {
+            get { return captureMouse; }
+            set { 
+                if (captureMouse != value) {
+                    if (captureMouse = value)
+                    {
+                        preCaptureMouse = curMouse;
+                        Mouse.SetPosition(mouseCenterX, mouseCenterY);
+                        IsMouseVisible = false;
+                    }
+                    else
+                    {
+                        if (preCaptureMouse != null)
+                        {
+                            Mouse.SetPosition(preCaptureMouse.X, preCaptureMouse.Y);
+                        }
+                        IsMouseVisible = true;
+                    }
+                }
+            }
+        }
+        MouseState lastMouse, curMouse;
         KeyboardState lastKey;
 
         public Game1()
@@ -65,6 +88,7 @@ namespace Russell_Peake_Project
             // TODO: Add your initialization logic here
 
             base.Initialize();
+            IsMouseVisible = true;
 
             //create 3 Rectangles
             FullScreen = GraphicsDevice.Viewport.Bounds;
@@ -193,15 +217,26 @@ namespace Russell_Peake_Project
             }
 
             // TODO: comple mouse logic here
-            MouseState mouse = Mouse.GetState();
+            curMouse = Mouse.GetState();
             if (lastMouse == null)
-            {
-                lastMouse = mouse;
+            {   
+                lastMouse = curMouse;
             }
 
+            this.CaptureMouse = curMouse.RightButton == ButtonState.Pressed;
 
-            //_camera.Pitch += _input.MouseDelta.Y * _input.MouseSensitivity;
-            //_camera.Yaw -= _input.MouseDelta.X * _input.MouseSensitivity;
+            Vector2 mouseDelta = new Vector2(
+                    captureMouse ? curMouse.X - mouseCenterX : 0,
+                    captureMouse ? curMouse.Y - mouseCenterY : 0
+                );
+
+            FreeMove.Pitch += mouseDelta.X * DefaultMouseSensitivity;
+            FreeMove.Yaw -= mouseDelta.Y * DefaultMouseSensitivity;
+
+            if (captureMouse)
+            {
+                Mouse.SetPosition(mouseCenterX, mouseCenterY);
+            }
 
             //freemove camera logic
             if (moveVector != Vector3.Zero)
@@ -217,6 +252,7 @@ namespace Russell_Peake_Project
 
             //store last key state
             lastKey = keyState;
+            lastMouse = curMouse;
             base.Update(gameTime);
         }
 
