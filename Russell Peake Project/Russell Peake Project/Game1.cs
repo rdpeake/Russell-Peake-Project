@@ -271,7 +271,7 @@ namespace Russell_Peake_Project
             if (!pause)
             {
                 //update animated objects
-
+                ball.update(gameTime);
             }
 
             base.Update(gameTime);
