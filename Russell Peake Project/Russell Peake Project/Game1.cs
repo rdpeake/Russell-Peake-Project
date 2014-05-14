@@ -274,7 +274,7 @@ namespace Russell_Peake_Project
                 Vector3 direction = ball.location - lastPosition;
                 direction.Normalize();
                 Follow.Direction = direction;
-                Follow.setPositionRelative(ball.location, 10f);
+                Follow.setPositionRelative(ball.location, -10f);
 
                 //remember new position
                 lastPosition = ball.location;
