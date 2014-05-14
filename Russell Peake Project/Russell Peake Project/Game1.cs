@@ -223,12 +223,12 @@ namespace Russell_Peake_Project
                 lastMouse = curMouse;
             }
 
-            this.CaptureMouse = curMouse.RightButton == ButtonState.Pressed;
-
             Vector2 mouseDelta = new Vector2(
                     captureMouse ? curMouse.X - mouseCenterX : 0,
                     captureMouse ? curMouse.Y - mouseCenterY : 0
                 );
+
+            this.CaptureMouse = curMouse.RightButton == ButtonState.Pressed;
 
             FreeMove.Pitch += mouseDelta.X * DefaultMouseSensitivity;
             FreeMove.Yaw -= mouseDelta.Y * DefaultMouseSensitivity;
