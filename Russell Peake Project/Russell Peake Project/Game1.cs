@@ -277,6 +277,7 @@ namespace Russell_Peake_Project
                 Follow.Position = direction;
                 Follow.Move(-direction * 5f);
                 Follow.Position += Follow.UpAxis + Follow.SideAxis;
+                Follow.Yaw = MathHelper.ToRadians(20f);
 
                 //remember new position
                 lastPosition = ball.location;
