@@ -38,6 +38,7 @@ namespace Russell_Peake_Project
         private bool pause = false;
 
         public Revolving_ball ball;
+        Vector3 lastPosition;
 
         const int mouseCenterX = 100, mouseCenterY = 100;
         MouseState preCaptureMouse;
@@ -260,7 +261,26 @@ namespace Russell_Peake_Project
                 Mouse.SetPosition(mouseCenterX, mouseCenterY);
             }
 
-            //TODO: add follow camera update logic here
+
+            if (!pause)
+            {
+                //update animated objects
+                ball.update(gameTime);
+                if (lastPosition == null)
+                {
+                    lastPosition = ball.location;
+                }
+                //TODO: add follow camera update logic here
+                Vector3 direction = ball.location - lastPosition;
+                direction.Normalize();
+                Follow.Direction = direction;
+                Follow.Position = direction * 5f;
+
+                //remember new position
+                lastPosition = ball.location;
+            }
+
+            
 
             //TODO consider adding statistic update code here like FPS
 
@@ -268,11 +288,6 @@ namespace Russell_Peake_Project
             lastKey = keyState;
             lastMouse = curMouse;
 
-            if (!pause)
-            {
-                //update animated objects
-                ball.update(gameTime);
-            }
 
             base.Update(gameTime);
         }
