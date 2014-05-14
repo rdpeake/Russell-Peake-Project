@@ -35,6 +35,7 @@ namespace Russell_Peake_Project
         ActiveCamera activeCamera = ActiveCamera.Free;
         public Matrix ProjectionMatrix;
         Camera FreeMove, Follow, MiniMap;
+        private bool pause = false;
 
         public Model model;
 
@@ -201,6 +202,15 @@ namespace Russell_Peake_Project
                     case Keys.Right:
                         moveVector.Y = 1f;
                         break;
+                    case Keys.N: //step scene forward
+                        if (pause)
+                        {
+                            if (lastKey.IsKeyUp(Keys.N))
+                            {
+
+                            }
+                        }
+                        break;
                     case Keys.Enter: //Reset
                         if (lastKey.IsKeyUp(Keys.Enter))
                         {
@@ -210,13 +220,14 @@ namespace Russell_Peake_Project
                     case Keys.Space: //Start/Stop
                         if (lastKey.IsKeyUp(Keys.Space))
                         {
-
+                            pause = !pause;
+                            //TODO: also set pause state of physics engine
                         }
                         break;
                 }
             }
 
-            // TODO: comple mouse logic here
+            // TODO: compile mouse logic here
             curMouse = Mouse.GetState();
             if (lastMouse == null)
             {   
@@ -253,6 +264,13 @@ namespace Russell_Peake_Project
             //store last key state
             lastKey = keyState;
             lastMouse = curMouse;
+
+            if (!pause)
+            {
+                //update animated objects
+
+            }
+
             base.Update(gameTime);
         }
 
