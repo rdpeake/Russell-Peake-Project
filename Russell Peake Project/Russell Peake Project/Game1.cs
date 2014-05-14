@@ -38,6 +38,9 @@ namespace Russell_Peake_Project
 
         public Model model;
 
+        const int mouseCenterX = 100, mouseCenterY = 100;
+        MouseState preCaptureMouse;
+        bool captureMouse = false;
         MouseState lastMouse;
         KeyboardState lastKey;
 
@@ -190,6 +193,12 @@ namespace Russell_Peake_Project
             }
 
             // TODO: comple mouse logic here
+            MouseState mouse = Mouse.GetState();
+            if (lastMouse == null)
+            {
+                lastMouse = mouse;
+            }
+
 
             //_camera.Pitch += _input.MouseDelta.Y * _input.MouseSensitivity;
             //_camera.Yaw -= _input.MouseDelta.X * _input.MouseSensitivity;
