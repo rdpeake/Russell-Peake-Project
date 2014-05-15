@@ -86,6 +86,9 @@ namespace Russell_Peake_Project
 
             //create new room;
             machine = new Room(this, Physics);
+
+            Physics.Add(machine);
+            Physics.Gravity = new Vector3(0f, 0f, -9.8f);
         }
 
         /// <summary>
@@ -215,14 +218,15 @@ namespace Russell_Peake_Project
                         {
                             if (lastKey.IsKeyUp(Keys.N))
                             {
-
+                                machine.Update(gameTime);
+                                Physics.Integrate(delta);
                             }
                         }
                         break;
                     case Keys.Enter: //Reset
                         if (lastKey.IsKeyUp(Keys.Enter))
                         {
-
+                            machine.init();
                         }
                         break;
                     case Keys.Space: //Start/Stop
@@ -230,6 +234,7 @@ namespace Russell_Peake_Project
                         {
                             pause = !pause;
                             //TODO: also set pause state of physics engine
+                            Physics.Enabled = !pause;
                         }
                         break;
                 }
