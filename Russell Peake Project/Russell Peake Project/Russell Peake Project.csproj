@@ -73,10 +73,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="Interfaces\interfaces.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Revolving ball.cs" />
+    <Compile Include="Room.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
@@ -85,6 +87,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Henge3D_201011\Physics\Physics.csproj">
+      <Project>{888dc669-1e80-4afd-895b-4b6a0751a07c}</Project>
+      <Name>Physics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Russell Peake ProjectContent\Russell Peake ProjectContent.contentproj">
       <Name>Russell_Peake_ProjectContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>

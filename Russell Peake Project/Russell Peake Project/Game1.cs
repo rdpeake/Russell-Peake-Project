@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+using Henge3D.Physics;
+
 namespace Russell_Peake_Project
 {
     enum ActiveCamera
@@ -36,8 +38,9 @@ namespace Russell_Peake_Project
         public Matrix ProjectionMatrix;
         Camera FreeMove, Follow, MiniMap;
         private bool pause = false;
+        PhysicsManager Physics;
 
-        public Revolving_ball ball;
+        public Room machine;
         Vector3 lastPosition;
 
         const int mouseCenterX = 100, mouseCenterY = 100;
@@ -77,6 +80,9 @@ namespace Russell_Peake_Project
             graphics.PreferredBackBufferWidth = 1280;
 
             Content.RootDirectory = "Content";
+
+            //Load physics manager;
+            Physics = new PhysicsManager(this);
         }
 
         /// <summary>
@@ -126,10 +132,8 @@ namespace Russell_Peake_Project
             MiniMap.MinPitch = MathHelper.ToRadians(-89.9f);
             MiniMap.MaxPitch = MathHelper.ToRadians(89.9f);
 
-            //load model
-            ball = new Revolving_ball(this);
-
-            //TODO load elements!
+            //load machine room;
+            machine = new Room(this, Physics);
         }
 
         /// <summary>
@@ -265,13 +269,13 @@ namespace Russell_Peake_Project
             if (!pause)
             {
                 //update animated objects
-                ball.update(gameTime);
+                machine.Update(gameTime);
                 if (lastPosition == null)
                 {
-                    lastPosition = ball.location;
+                    lastPosition = machine.TrackedObject.Location;
                 }
                 //TODO: add follow camera update logic here
-                Vector3 direction = ball.location - lastPosition;
+                Vector3 direction = machine.TrackedObject.Location - lastPosition;
                 direction.Normalize();
                 Follow.ForwardAxis = direction;
                 Follow.Position = direction;
@@ -281,7 +285,7 @@ namespace Russell_Peake_Project
                 Follow.Pitch = MathHelper.ToRadians(-30f);
 
                 //remember new position
-                lastPosition = ball.location;
+                lastPosition = machine.TrackedObject.Location;
             }
 
             

@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Russell Peake Project", "Russell Peake Project\Russell Peake Project\Russell Peake Project.csproj", "{BBA24B27-B4D7-4E95-B27D-FC17DFF611BC}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Russell Peake ProjectContent", "Russell Peake Project\Russell Peake ProjectContent\Russell Peake ProjectContent.contentproj", "{535A5118-92FE-45C4-8E8A-D300F4404222}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Russell Peake ProjectContent", "Russell Peake Project\Russell Peake ProjectContent\Russell Peake ProjectContent.contentproj", "{535A5118-92FE-45C4-8E8A-D300F4404222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Physics", "..\Henge3D_201011\Physics\Physics.csproj", "{888DC669-1E80-4AFD-895B-4B6A0751A07C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +21,10 @@ Global
 		{BBA24B27-B4D7-4E95-B27D-FC17DFF611BC}.Release|x86.Build.0 = Release|x86
 		{535A5118-92FE-45C4-8E8A-D300F4404222}.Debug|x86.ActiveCfg = Debug|x86
 		{535A5118-92FE-45C4-8E8A-D300F4404222}.Release|x86.ActiveCfg = Release|x86
+		{888DC669-1E80-4AFD-895B-4B6A0751A07C}.Debug|x86.ActiveCfg = Debug|x86
+		{888DC669-1E80-4AFD-895B-4B6A0751A07C}.Debug|x86.Build.0 = Debug|x86
+		{888DC669-1E80-4AFD-895B-4B6A0751A07C}.Release|x86.ActiveCfg = Release|x86
+		{888DC669-1E80-4AFD-895B-4B6A0751A07C}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
