@@ -83,6 +83,9 @@ namespace Russell_Peake_Project
 
             //Load physics manager;
             Physics = new PhysicsManager(this);
+
+            //create new room;
+            machine = new Room(this, Physics);
         }
 
         /// <summary>
@@ -133,7 +136,7 @@ namespace Russell_Peake_Project
             MiniMap.MaxPitch = MathHelper.ToRadians(89.9f);
 
             //load machine room;
-            machine = new Room(this, Physics);
+            machine.init();
         }
 
         /// <summary>
