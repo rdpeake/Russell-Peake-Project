@@ -366,7 +366,7 @@ namespace Russell_Peake_Project
 
         private void drawFreeCamera()
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             //TODO add free camera drawing code here
             FreeMove.draw();
