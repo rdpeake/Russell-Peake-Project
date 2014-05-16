@@ -284,7 +284,7 @@ namespace Russell_Peake_Project
                     lastPosition = machine.TrackedObject.Location;
                 }
                 //TODO: add follow camera update logic here
-                Vector3 direction = machine.TrackedObject.Location - lastPosition;
+                Vector3 direction = lastPosition - machine.TrackedObject.Location;
                 direction.Normalize();
                 Follow.ForwardAxis = direction;
                 Follow.Position = direction;
