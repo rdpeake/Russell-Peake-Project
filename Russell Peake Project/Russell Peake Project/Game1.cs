@@ -288,10 +288,10 @@ namespace Russell_Peake_Project
                 direction.Normalize();
                 Follow.ForwardAxis = direction;
                 Follow.Position = machine.TrackedObject.Location + (direction * 5f);
-                //Follow.Move(-direction * 5f);
-                //Follow.Position += -Follow.UpAxis + Follow.SideAxis;
-                //Follow.Yaw = MathHelper.ToRadians(00f);
-                //Follow.Pitch = MathHelper.ToRadians(-30f);
+                Follow.Move(-direction * 5f);
+                Follow.Position += -Follow.UpAxis + Follow.SideAxis;
+                Follow.Yaw = MathHelper.ToRadians(00f);
+                Follow.Pitch = MathHelper.ToRadians(-30f);
 
                 //remember new position
                 lastPosition = machine.TrackedObject.Location;
