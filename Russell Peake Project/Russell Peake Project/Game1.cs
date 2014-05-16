@@ -139,6 +139,7 @@ namespace Russell_Peake_Project
             MiniMap.MaxPitch = MathHelper.ToRadians(89.9f);
 
             //load machine room;
+            machine.initRoom();
             machine.init();
         }
 
