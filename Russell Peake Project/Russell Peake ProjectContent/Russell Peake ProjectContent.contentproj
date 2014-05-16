@@ -33,8 +33,14 @@
     <Compile Include="sphere.fbx">
       <Name>sphere</Name>
       <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
+      <Processor>RigidBodyModelProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Henge3D_201011\Pipeline\Pipeline.csproj">
+      <Project>{3086e95c-5a76-4e06-a494-f61c2b71fea2}</Project>
+      <Name>Pipeline</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

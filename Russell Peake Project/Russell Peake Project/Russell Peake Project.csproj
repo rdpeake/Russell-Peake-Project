@@ -91,6 +91,10 @@
       <Project>{888dc669-1e80-4afd-895b-4b6a0751a07c}</Project>
       <Name>Physics</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Henge3D_201011\Pipeline\Pipeline.csproj">
+      <Project>{3086e95c-5a76-4e06-a494-f61c2b71fea2}</Project>
+      <Name>Pipeline</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Russell Peake ProjectContent\Russell Peake ProjectContent.contentproj">
       <Name>Russell_Peake_ProjectContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>
