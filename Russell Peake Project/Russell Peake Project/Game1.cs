@@ -287,8 +287,8 @@ namespace Russell_Peake_Project
                 Vector3 direction = lastPosition - machine.TrackedObject.Location;
                 direction.Normalize();
                 Follow.ForwardAxis = direction;
-                Follow.Position = direction;
-                Follow.Move(-direction * 5f);
+                Follow.Position = machine.TrackedObject.Location;
+                //Follow.Move(-direction * 5f);
                 //Follow.Position += -Follow.UpAxis + Follow.SideAxis;
                 //Follow.Yaw = MathHelper.ToRadians(00f);
                 //Follow.Pitch = MathHelper.ToRadians(-30f);
