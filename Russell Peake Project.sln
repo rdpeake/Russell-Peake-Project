@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Russell Peake ProjectConten
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Physics", "..\Henge3D_201011\Physics\Physics.csproj", "{888DC669-1E80-4AFD-895B-4B6A0751A07C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipeline", "..\Henge3D_201011\Pipeline\Pipeline.csproj", "{3086E95C-5A76-4E06-A494-F61C2B71FEA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -25,6 +27,10 @@ Global
 		{888DC669-1E80-4AFD-895B-4B6A0751A07C}.Debug|x86.Build.0 = Debug|x86
 		{888DC669-1E80-4AFD-895B-4B6A0751A07C}.Release|x86.ActiveCfg = Release|x86
 		{888DC669-1E80-4AFD-895B-4B6A0751A07C}.Release|x86.Build.0 = Release|x86
+		{3086E95C-5A76-4E06-A494-F61C2B71FEA2}.Debug|x86.ActiveCfg = Debug|x86
+		{3086E95C-5A76-4E06-A494-F61C2B71FEA2}.Debug|x86.Build.0 = Debug|x86
+		{3086E95C-5A76-4E06-A494-F61C2B71FEA2}.Release|x86.ActiveCfg = Debug|x86
+		{3086E95C-5A76-4E06-A494-F61C2B71FEA2}.Release|x86.Build.0 = Debug|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
