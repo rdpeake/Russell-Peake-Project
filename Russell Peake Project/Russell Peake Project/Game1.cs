@@ -173,6 +173,7 @@ namespace Russell_Peake_Project
             // Allows the game to exit
             float delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Vector3 moveVector = Vector3.Zero;
+            bool step = false;
 
             KeyboardState keyState = Keyboard.GetState();
             if (lastKey == null)
@@ -218,7 +219,7 @@ namespace Russell_Peake_Project
                         {
                             if (lastKey.IsKeyUp(Keys.N))
                             {
-                                machine.Update(gameTime);
+                                step = true;
                                 Physics.Integrate(delta);
                             }
                         }
@@ -274,7 +275,7 @@ namespace Russell_Peake_Project
             }
 
 
-            if (!pause)
+            if (!pause || step)
             {
                 //update animated objects
                 machine.Update(gameTime);
