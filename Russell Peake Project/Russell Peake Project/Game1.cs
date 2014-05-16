@@ -37,7 +37,7 @@ namespace Russell_Peake_Project
         ActiveCamera activeCamera = ActiveCamera.Free;
         public Matrix ProjectionMatrix;
         Camera FreeMove, Follow, MiniMap;
-        private bool pause = false;
+        private bool pause = true;
         PhysicsManager Physics;
 
         public Room machine;
