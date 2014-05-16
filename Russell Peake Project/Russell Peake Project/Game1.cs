@@ -289,7 +289,7 @@ namespace Russell_Peake_Project
                 Follow.ForwardAxis = direction;
                 Follow.Position = direction;
                 Follow.Move(-direction * 5f);
-                Follow.Position += -Follow.UpAxis + Follow.SideAxis;
+                //Follow.Position += -Follow.UpAxis + Follow.SideAxis;
                 //Follow.Yaw = MathHelper.ToRadians(00f);
                 //Follow.Pitch = MathHelper.ToRadians(-30f);
 
