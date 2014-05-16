@@ -37,7 +37,7 @@ namespace Russell_Peake_Project
         ActiveCamera activeCamera = ActiveCamera.Free;
         public Matrix ProjectionMatrix;
         Camera FreeMove, Follow, MiniMap;
-        private bool pause = true;
+        private bool pause = false;
         PhysicsManager Physics;
 
         public Room machine;
@@ -83,6 +83,7 @@ namespace Russell_Peake_Project
 
             //Load physics manager;
             Physics = new PhysicsManager(this);
+            Physics.Enabled = !pause;
 
             //create new room;
             machine = new Room(this, Physics);
@@ -117,7 +118,7 @@ namespace Russell_Peake_Project
             ProjectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45f), GraphicsDevice.Viewport.AspectRatio, 0.01f, 100.0f);
 
             //create cameras
-            FreeMove = new Camera(this, new Vector3(15, 0, 5), pitch: -MathHelper.ToRadians(30f));
+            FreeMove = new Camera(this, new Vector3(15, 0, 5), pitch: -MathHelper.ToRadians(10f));
             FreeMove.UpAxis = Vector3.UnitZ;
             FreeMove.ForwardAxis = -Vector3.UnitX;
             FreeMove.MinPitch = MathHelper.ToRadians(-89.9f);
