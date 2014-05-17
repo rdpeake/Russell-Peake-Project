@@ -25,7 +25,7 @@ namespace Russell_Peake_Project
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        float movementSpeed = 1f;
+        float movementSpeed = 5f;
         const float DefaultMouseSensitivity = 0.005f;
 
         GraphicsDeviceManager graphics;
