@@ -112,7 +112,7 @@ namespace Russell_Peake_Project
                 (int)(FullScreen.Width / scaleFactor), (int)(FullScreen.Height / scaleFactor));
 
             //create 2 render targets
-            RT_PIP1 = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight);
+            RT_PIP1 = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight,false, SurfaceFormat.Color, DepthFormat.Depth24);
 
             RT_PIP2 = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight);
 
