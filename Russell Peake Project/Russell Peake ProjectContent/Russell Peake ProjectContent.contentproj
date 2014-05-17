@@ -34,7 +34,7 @@
       <Name>sphere</Name>
       <Importer>FbxImporter</Importer>
       <Processor>RigidBodyModelProcessor</Processor>
-      <ProcessorParameters_DefaultElasticity>0.6</ProcessorParameters_DefaultElasticity>
+      <ProcessorParameters_DefaultElasticity>9</ProcessorParameters_DefaultElasticity>
     </Compile>
   </ItemGroup>
   <ItemGroup>
