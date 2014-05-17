@@ -44,6 +44,48 @@
       <Name>Pipeline</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="capsule.fbx">
+      <Name>capsule</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>RigidBodyModelProcessor</Processor>
+    </Compile>
+    <Compile Include="cone.fbx">
+      <Name>cone</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>RigidBodyModelProcessor</Processor>
+    </Compile>
+    <Compile Include="lblock.fbx">
+      <Name>lblock</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>RigidBodyModelProcessor</Processor>
+    </Compile>
+    <Compile Include="obelisk.fbx">
+      <Name>obelisk</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>RigidBodyModelProcessor</Processor>
+    </Compile>
+    <Compile Include="slab.fbx">
+      <Name>slab</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>RigidBodyModelProcessor</Processor>
+    </Compile>
+    <Compile Include="small_cube.fbx">
+      <Name>small_cube</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>RigidBodyModelProcessor</Processor>
+    </Compile>
+    <Compile Include="torus.fbx">
+      <Name>torus</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>RigidBodyModelProcessor</Processor>
+    </Compile>
+    <Compile Include="triangle.fbx">
+      <Name>triangle</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>RigidBodyModelProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

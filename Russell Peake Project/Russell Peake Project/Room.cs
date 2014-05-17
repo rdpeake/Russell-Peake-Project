@@ -122,6 +122,8 @@ namespace Russell_Peake_Project
             GameComponents.Add(rb);
             Physics.Add(rb);
             this.TrackedObject = rb;
+
+
         }
 
         public void Draw(Matrix viewMatrix)
