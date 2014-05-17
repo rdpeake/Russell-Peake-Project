@@ -132,7 +132,7 @@ namespace Russell_Peake_Project
             Follow.MinPitch = MathHelper.ToRadians(-89.9f);
             Follow.MaxPitch = MathHelper.ToRadians(89.9f);
 
-            MiniMap = new Camera(this, new Vector3(15, 0, 30f), MathHelper.ToRadians(90f), -MathHelper.ToRadians(90f));
+            MiniMap = new Camera(this, new Vector3(15, 5, 30f), MathHelper.ToRadians(90f), -MathHelper.ToRadians(90f));
             MiniMap.UpAxis = Vector3.UnitZ;
             MiniMap.ForwardAxis = -Vector3.UnitX;
             MiniMap.MinPitch = MathHelper.ToRadians(-89.9f);
