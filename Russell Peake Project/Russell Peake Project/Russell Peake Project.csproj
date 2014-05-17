@@ -73,6 +73,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="Elements\Element.cs" />
+    <Compile Include="Elements\Element1.cs" />
+    <Compile Include="Elements\SolidComponent.cs" />
     <Compile Include="Interfaces\interfaces.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

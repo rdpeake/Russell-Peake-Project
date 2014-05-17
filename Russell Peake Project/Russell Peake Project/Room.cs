@@ -123,6 +123,8 @@ namespace Russell_Peake_Project
             Physics.Add(rb);
             this.TrackedObject = rb;
 
+            Elements.Element e = new Elements.Element1(Game, Physics);
+            GameComponents.Add(e);
 
         }
 
