@@ -344,7 +344,7 @@ namespace Russell_Peake_Project
             {
                 drawFreeCamera();
             }
-
+            GraphicsDevice.DepthStencilState = DepthStencilState.Default;
             //Draw full screen
             GraphicsDevice.SetRenderTarget(null);
             switch (activeCamera)
