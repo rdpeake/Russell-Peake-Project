@@ -52,7 +52,7 @@ namespace Russell_Peake_Project
 		};
 
         #endregion
-        private static float _scale = 10.0f;
+        private static float _scale = 20.0f;
         private static BasicEffect _effect;
         private static VertexDeclaration _vertexDeclaration;
         //--------------------------

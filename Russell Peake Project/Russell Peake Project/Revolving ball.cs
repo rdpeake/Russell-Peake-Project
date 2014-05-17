@@ -13,8 +13,6 @@ namespace Russell_Peake_Project
     public class Revolving_ball : RigidBody, Interfaces.ITrackable, Interfaces.IComponent
     {
         Model model;
-        float radius = 1f;
-        float angle = 0;
 
         Game1 Game;
         public Revolving_ball(Game1 game) :
