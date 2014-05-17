@@ -88,7 +88,7 @@ namespace Russell_Peake_Project
 
             //create new room;
             machine = new Room(this, Physics);
-            Physics.Gravity = new Vector3(0f, 0f, -9.8f)+.5;
+            Physics.Gravity = new Vector3(0f, 0f, -9.8f)*0.5;
         }
 
         /// <summary>
