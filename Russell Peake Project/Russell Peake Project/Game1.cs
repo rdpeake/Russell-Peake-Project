@@ -297,8 +297,8 @@ namespace Russell_Peake_Project
                     Follow.Position = machine.TrackedObject.Location;
                     Follow.Move(-direction * 4f);
                     //Follow.Position += -Follow.UpAxis + Follow.SideAxis;
-                    Follow.Yaw = MathHelper.ToRadians(00f);
-                    Follow.Pitch = MathHelper.ToRadians(-30f);
+                    //Follow.Yaw = MathHelper.ToRadians(00f);
+                    //Follow.Pitch = MathHelper.ToRadians(-30f);
                 }
 
                 //remember new position
