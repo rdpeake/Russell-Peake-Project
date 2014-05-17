@@ -69,6 +69,7 @@
       <Name>slab</Name>
       <Importer>FbxImporter</Importer>
       <Processor>RigidBodyModelProcessor</Processor>
+      <ProcessorParameters_DefaultShape>Mesh</ProcessorParameters_DefaultShape>
     </Compile>
     <Compile Include="small_cube.fbx">
       <Name>small_cube</Name>
