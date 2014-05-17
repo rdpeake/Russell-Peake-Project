@@ -41,7 +41,8 @@ namespace Russell_Peake_Project
         PhysicsManager Physics;
 
         public Room machine;
-        Vector3 lastPosition;
+        Vector3 CameraCenter = new Vector3(0, 0, 10f);
+        //Vector3 lastPosition;
 
         const int mouseCenterX = 100, mouseCenterY = 100;
         MouseState preCaptureMouse;
@@ -280,12 +281,12 @@ namespace Russell_Peake_Project
             {
                 //update animated objects
                 machine.Update(gameTime);
-                if (lastPosition == null)
-                {
-                    lastPosition = machine.TrackedObject.Location;
-                }
+                //if (lastPosition == null)
+                //{
+                //    lastPosition = machine.TrackedObject.Location;
+                //}
                 //TODO: add follow camera update logic here
-                Vector3 direction = machine.TrackedObject.Location - lastPosition;
+                Vector3 direction = machine.TrackedObject.Location - CameraCenter;
                 if (direction.Length() > 0) {
                     direction.Normalize();
                     Follow.ForwardAxis = direction;
@@ -297,7 +298,7 @@ namespace Russell_Peake_Project
                 }
 
                 //remember new position
-                lastPosition = machine.TrackedObject.Location;
+                //lastPosition = machine.TrackedObject.Location;
             }
 
             
