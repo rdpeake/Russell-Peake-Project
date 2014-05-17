@@ -36,7 +36,7 @@ namespace Russell_Peake_Project
             }
 
             SetWorld(new Vector3(0f, 0.0f, 10f), Quaternion.Identity);
-            this.SetVelocity(10*Vector3.UnitY + 5 *Vector3.UnitX, Vector3.Zero);
+            //this.SetVelocity(10*Vector3.UnitY + 5 *Vector3.UnitX, Vector3.Zero);
         }
 
         public void Update(GameTime gameTime)

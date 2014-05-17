@@ -287,6 +287,10 @@ namespace Russell_Peake_Project
                 //}
                 //TODO: add follow camera update logic here
                 Vector3 direction = machine.TrackedObject.Location - CameraCenter;
+                if (machine.TrackedObject.Location == CameraCenter)
+                {
+                    direction = Vector3.UnitZ;
+                }
                 if (direction.Length() > 0) {
                     direction.Normalize();
                     Follow.ForwardAxis = direction;
