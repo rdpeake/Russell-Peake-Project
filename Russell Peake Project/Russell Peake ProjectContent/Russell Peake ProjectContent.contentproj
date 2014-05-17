@@ -69,7 +69,7 @@
       <Name>slab</Name>
       <Importer>FbxImporter</Importer>
       <Processor>RigidBodyModelProcessor</Processor>
-      <ProcessorParameters_DefaultShape>Mesh</ProcessorParameters_DefaultShape>
+      <ProcessorParameters_WindingOrder>CounterClockwise</ProcessorParameters_WindingOrder>
     </Compile>
     <Compile Include="small_cube.fbx">
       <Name>small_cube</Name>
