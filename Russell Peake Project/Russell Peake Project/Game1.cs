@@ -323,6 +323,7 @@ namespace Russell_Peake_Project
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            GraphicsDevice.DepthStencilState = DepthStencilState.Default;
             //Draw PIP1
             GraphicsDevice.SetRenderTarget(RT_PIP1);
             if (activeCamera != ActiveCamera.Follow)
@@ -344,7 +345,7 @@ namespace Russell_Peake_Project
             {
                 drawFreeCamera();
             }
-            GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+            
             //Draw full screen
             GraphicsDevice.SetRenderTarget(null);
             switch (activeCamera)
