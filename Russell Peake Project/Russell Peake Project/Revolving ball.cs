@@ -33,7 +33,7 @@ namespace Russell_Peake_Project
                 }
             }
 
-            SetWorld(new Vector3(10f, 10f, 10f), Quaternion.Identity);
+            SetWorld(new Vector3(10f, 10f, 20f), Quaternion.Identity);
             //this.SetVelocity(10*Vector3.UnitY + 5 *Vector3.UnitX, Vector3.Zero);
         }
 
