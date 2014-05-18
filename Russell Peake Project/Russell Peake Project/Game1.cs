@@ -280,7 +280,7 @@ namespace Russell_Peake_Project
 
             if (!pause || step)
             {
-                //update animated objects
+                //update animated objects   
                 machine.Update(gameTime);
                 //if (lastPosition == null)
                 //{
