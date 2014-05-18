@@ -27,7 +27,7 @@ namespace Russell_Peake_Project.Elements
             Add(sc);
 
             sc = new SolidComponent(game, game.Content.Load<Model>("slab"), Color.Black.ToVector3());
-            sc.SetWorld(0.5f, new Vector3(10, 10, 3), Quaternion.CreateFromAxisAngle(Vector3.UnitY, -MathHelper.ToRadians(25f)));
+            sc.SetWorld(0.5f, new Vector3(10, 10, 3), Quaternion.CreateFromAxisAngle(Vector3.UnitY, -MathHelper.ToRadians(35f)));
             Add(sc);
 
             //sc = new SolidComponent(game, game.Content.Load<Model>("slab"), Color.Black.ToVector3());
