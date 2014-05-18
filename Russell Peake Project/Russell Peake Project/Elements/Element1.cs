@@ -23,16 +23,16 @@ namespace Russell_Peake_Project.Elements
             Add(sc);
 
             sc = new SolidComponent(game, game.Content.Load<Model>("slab"), Color.Black.ToVector3());
-            sc.SetWorld(1, new Vector3(8, 10, 6), Quaternion.CreateFromAxisAngle(Vector3.UnitY, MathHelper.ToRadians(25f)));
+            sc.SetWorld(1, new Vector3(8, 10, 5), Quaternion.CreateFromAxisAngle(Vector3.UnitY, MathHelper.ToRadians(25f)));
             Add(sc);
 
             sc = new SolidComponent(game, game.Content.Load<Model>("slab"), Color.Black.ToVector3());
-            sc.SetWorld(1, new Vector3(4, 10, 7), Quaternion.CreateFromAxisAngle(Vector3.UnitY, -MathHelper.ToRadians(25f)));
+            sc.SetWorld(1, new Vector3(10, 10, 3), Quaternion.CreateFromAxisAngle(Vector3.UnitY, -MathHelper.ToRadians(25f)));
             Add(sc);
 
-            sc = new SolidComponent(game, game.Content.Load<Model>("slab"), Color.Black.ToVector3());
-            sc.SetWorld(1, new Vector3(10, 10, 7), Quaternion.CreateFromAxisAngle(Vector3.UnitY, -MathHelper.ToRadians(25f)));
-            Add(sc);
+            //sc = new SolidComponent(game, game.Content.Load<Model>("slab"), Color.Black.ToVector3());
+            //sc.SetWorld(1, new Vector3(10, 10, 7), Quaternion.CreateFromAxisAngle(Vector3.UnitY, -MathHelper.ToRadians(25f)));
+            //Add(sc);
 
         }
     }
