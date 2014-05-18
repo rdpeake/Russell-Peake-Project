@@ -19,15 +19,15 @@ namespace Russell_Peake_Project.Elements
         public override void InitializeComponents()
         {
             SolidComponent sc = new SolidComponent(game, game.Content.Load<Model>("slab"), Color.Black.ToVector3());
-            sc.SetWorld(0.5f, new Vector3(10, 10, 17), Quaternion.CreateFromAxisAngle(new Vector3(0,1,0), -MathHelper.ToRadians(45f)));
+            sc.SetWorld(0.5f, new Vector3(14, 18, 17), Quaternion.CreateFromAxisAngle(new Vector3(0,1,0), -MathHelper.ToRadians(45f)));
             Add(sc);
 
             sc = new SolidComponent(game, game.Content.Load<Model>("slab"), Color.Black.ToVector3());
-            sc.SetWorld(0.5f, new Vector3(8, 10, 15), Quaternion.CreateFromAxisAngle(Vector3.UnitY, MathHelper.ToRadians(35f)));
+            sc.SetWorld(0.5f, new Vector3(12, 18, 15), Quaternion.CreateFromAxisAngle(Vector3.UnitY, MathHelper.ToRadians(35f)));
             Add(sc);
 
             sc = new SolidComponent(game, game.Content.Load<Model>("slab"), Color.Black.ToVector3());
-            sc.SetWorld(0.5f, new Vector3(10, 10, 14), Quaternion.CreateFromAxisAngle(Vector3.UnitY, -MathHelper.ToRadians(35f)));
+            sc.SetWorld(0.5f, new Vector3(14, 18, 14), Quaternion.CreateFromAxisAngle(Vector3.UnitY, -MathHelper.ToRadians(35f)));
             Add(sc);
 
             //sc = new SolidComponent(game, game.Content.Load<Model>("slab"), Color.Black.ToVector3());
