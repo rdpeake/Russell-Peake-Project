@@ -65,7 +65,6 @@
       <Importer>FbxImporter</Importer>
       <Processor>RigidBodyModelProcessor</Processor>
       <ProcessorParameters_DefaultElasticity>0.6</ProcessorParameters_DefaultElasticity>
-      <ProcessorParameters_DefaultShape>Mesh</ProcessorParameters_DefaultShape>
     </Compile>
     <Compile Include="small_cube.fbx">
       <Name>small_cube</Name>
