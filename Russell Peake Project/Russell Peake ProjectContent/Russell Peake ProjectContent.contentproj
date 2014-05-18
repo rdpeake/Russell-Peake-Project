@@ -45,11 +45,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="capsule.fbx">
-      <Name>capsule</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>RigidBodyModelProcessor</Processor>
-    </Compile>
     <Compile Include="cone.fbx">
       <Name>cone</Name>
       <Importer>FbxImporter</Importer>
@@ -86,6 +81,15 @@
       <Name>triangle</Name>
       <Importer>FbxImporter</Importer>
       <Processor>RigidBodyModelProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="rail.fbx">
+      <Name>rail</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>RigidBodyModelProcessor</Processor>
+      <ProcessorParameters_DefaultElasticity>0.8</ProcessorParameters_DefaultElasticity>
+      <ProcessorParameters_DefaultShape>Capsule</ProcessorParameters_DefaultShape>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
