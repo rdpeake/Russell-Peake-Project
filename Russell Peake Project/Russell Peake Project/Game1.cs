@@ -120,7 +120,7 @@ namespace Russell_Peake_Project
                 Game1.models.Add(s, model);
             }
 
-            lightPos = new Vector3(-10, 4, -2);
+            lightPos = new Vector3(0, 0, 20f);
             lightPower = 1.0f;
             ambientPower = 0.2f;
 
