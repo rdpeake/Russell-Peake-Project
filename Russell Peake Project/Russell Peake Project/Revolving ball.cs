@@ -57,6 +57,7 @@ namespace Russell_Peake_Project
                 {
                     effect.CurrentTechnique = effect.Techniques["Simplest"];
                     effect.Parameters["xViewProjection"].SetValue(view * Game.ProjectionMatrix);
+                    effect.Parameters["color"].SetValue(Color.Red.ToVector4());
 
                     //effect.World = mesh.ParentBone.Transform * Transform.Combined;
                     //effect.View = view;
