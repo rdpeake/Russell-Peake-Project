@@ -48,6 +48,8 @@ namespace Russell_Peake_Project
         MouseState preCaptureMouse;
         bool captureMouse = false;
 
+        public static Dictionary<string, Model> models;
+
         public bool CaptureMouse
         {
             get { return captureMouse; }
@@ -99,6 +101,21 @@ namespace Russell_Peake_Project
         /// </summary>
         protected override void Initialize()
         {
+            //initialise models
+            Game1.models = new Dictionary<string, Model>();
+            foreach (string s in "sphere,slab".Split(','))
+            {
+                Model model = Content.Load<Model>(s);
+                foreach (ModelMesh mesh in model.Meshes)
+                {
+                    foreach (ModelMeshPart meshpart in mesh.MeshParts)
+                    {
+                        meshpart.Effect.Clone();
+                    }
+                }
+                Game1.models.Add(s, model);
+            }
+
             // TODO: Add your initialization logic here
 
             base.Initialize();

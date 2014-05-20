@@ -16,11 +16,11 @@ namespace Russell_Peake_Project
 
         Game1 Game;
         public Revolving_ball(Game1 game) :
-            base((Henge3D.Pipeline.RigidBodyModel)game.Content.Load<Model>("sphere").Tag)
+            base((Henge3D.Pipeline.RigidBodyModel)Game1.models["sphere"].Tag)
         {
             this.Game = game;
 
-            model = game.Content.Load<Model>("sphere");
+            model = Game1.models["sphere"];
 
             foreach (var mesh in model.Meshes)
             {
