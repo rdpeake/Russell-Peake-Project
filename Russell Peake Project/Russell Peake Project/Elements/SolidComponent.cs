@@ -46,6 +46,11 @@ namespace Russell_Peake_Project.Elements
                     effect.Parameters["xViewProjection"].SetValue(mesh.ParentBone.Transform * Transform.Combined * view * Game.ProjectionMatrix);
                     effect.Parameters["color"].SetValue(Color.Green.ToVector4());
 
+                    effect.Parameters["xWorld"].SetValue(mesh.ParentBone.Transform * Transform.Combined);
+                    effect.Parameters["xLightPos"].SetValue(Game1.lightPos);
+                    effect.Parameters["xLightPower"].SetValue(Game1.lightPower);
+                    effect.Parameters["xAmbient"].SetValue(Game1.ambientPower);
+
                     //effect.World = mesh.ParentBone.Transform * Transform.Combined;
                     //effect.View = view;
                     //effect.Projection = Game.ProjectionMatrix;
