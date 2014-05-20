@@ -102,6 +102,7 @@ namespace Russell_Peake_Project
         protected override void Initialize()
         {
             //initialise models
+            Effect e = Content.Load<Effect>("effect1");
             Game1.models = new Dictionary<string, Model>();
             foreach (string s in "sphere,slab".Split(','))
             {
@@ -110,7 +111,7 @@ namespace Russell_Peake_Project
                 {
                     foreach (ModelMeshPart meshpart in mesh.MeshParts)
                     {
-                        meshpart.Effect.Clone();
+                        meshpart.Effect = e.Clone();
                     }
                 }
                 Game1.models.Add(s, model);
