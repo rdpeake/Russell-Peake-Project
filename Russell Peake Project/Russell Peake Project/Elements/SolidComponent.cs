@@ -24,28 +24,31 @@ namespace Russell_Peake_Project.Elements
             this.Game = game;
             this.model = model;
             this.color = color;
-            foreach (var mesh in model.Meshes)
-            {
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    effect.EnableDefaultLighting();
-                    effect.AmbientLightColor = Vector3.One * 0.75f;
-                    effect.SpecularColor = Vector3.One;
-                    effect.PreferPerPixelLighting = true;
-                }
-            }
+            //foreach (var mesh in model.Meshes)
+            //{
+            //    foreach (Effect effect in mesh.Effects)
+            //    {
+            //        effect.EnableDefaultLighting();
+            //        effect.AmbientLightColor = Vector3.One * 0.75f;
+            //        effect.SpecularColor = Vector3.One;
+            //        effect.PreferPerPixelLighting = true;
+            //    }
+            //}
         }
 
         public void Draw(Matrix view)
         {
             foreach (var mesh in model.Meshes)
             {
-                foreach (BasicEffect effect in mesh.Effects)
+                foreach (Effect effect in mesh.Effects)
                 {
-                    effect.World = mesh.ParentBone.Transform * Transform.Combined;
-                    effect.View = view;
-                    effect.Projection = Game.ProjectionMatrix;
-                    effect.DiffuseColor = this.color;
+                    effect.CurrentTechnique = effect.Techniques["Simplest"];
+                    effect.Parameters["xViewProjection"].SetValue(view * Game.ProjectionMatrix);
+
+                    //effect.World = mesh.ParentBone.Transform * Transform.Combined;
+                    //effect.View = view;
+                    //effect.Projection = Game.ProjectionMatrix;
+                    //effect.DiffuseColor = this.color;
 
                 }
 

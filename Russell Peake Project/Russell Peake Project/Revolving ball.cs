@@ -22,16 +22,16 @@ namespace Russell_Peake_Project
 
             model = Game1.models["sphere"];
 
-            foreach (var mesh in model.Meshes)
-            {
-                foreach (Effect effect in mesh.Effects)
-                {
-                    effect.EnableDefaultLighting();
-                    effect.AmbientLightColor = Vector3.One * 0.75f;
-                    effect.SpecularColor = Vector3.One;
-                    effect.PreferPerPixelLighting = true;
-                }
-            }
+            //foreach (var mesh in model.Meshes)
+            //{
+            //    foreach (Effect effect in mesh.Effects)
+            //    {
+            //        effect.EnableDefaultLighting();
+            //        effect.AmbientLightColor = Vector3.One * 0.75f;
+            //        effect.SpecularColor = Vector3.One;
+            //        effect.PreferPerPixelLighting = true;
+            //    }
+            //}
 
             SetWorld(new Vector3(14f, 19f, 18f), Quaternion.Identity);
             //this.SetVelocity(10*Vector3.UnitY + 5 *Vector3.UnitX, Vector3.Zero);
@@ -53,12 +53,15 @@ namespace Russell_Peake_Project
         {
             foreach (var mesh in model.Meshes)
             {
-                foreach (BasicEffect effect in mesh.Effects)
+                foreach (Effect effect in mesh.Effects)
                 {
-                    effect.World = mesh.ParentBone.Transform * Transform.Combined;
-                    effect.View = view;
-                    effect.Projection = Game.ProjectionMatrix;
-                    effect.DiffuseColor = Color.Red.ToVector3();
+                    effect.CurrentTechnique = effect.Techniques["Simplest"];
+                    effect.Parameters["xViewProjection"].SetValue(view * Game.ProjectionMatrix);
+
+                    //effect.World = mesh.ParentBone.Transform * Transform.Combined;
+                    //effect.View = view;
+                    //effect.Projection = Game.ProjectionMatrix;
+                    //effect.DiffuseColor = Color.Red.ToVector3();
 
                 }
 
