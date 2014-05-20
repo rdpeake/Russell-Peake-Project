@@ -147,7 +147,7 @@ namespace Russell_Peake_Project
                     _vertices, 0, _vertices.Length, _indices, 0, _indices.Length / 3);
             }
             //-------------
-            Game.GraphicsDevice.RasterizerState = new RasterizerState() { CullMode = CullMode.CullCounterClockwiseFace };
+            Game.GraphicsDevice.RasterizerState = new RasterizerState() {FillMode = FillMode.WireFrame};
             //Game.GraphicsDevice.RasterizerState = previous;
             foreach (Interfaces.IDrawable i in GameComponents)
             {
