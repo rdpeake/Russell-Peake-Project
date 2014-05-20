@@ -121,7 +121,7 @@ namespace Russell_Peake_Project
                 {
                     foreach (ModelMeshPart meshpart in mesh.MeshParts)
                     {
-                        meshpart.Effect = e.Clone();
+                        //meshpart.Effect = e.Clone();
                     }
                 }
                 Game1.models.Add(s, model);
