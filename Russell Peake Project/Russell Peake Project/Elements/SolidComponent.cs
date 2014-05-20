@@ -43,18 +43,16 @@ namespace Russell_Peake_Project.Elements
                 foreach (Effect effect in mesh.Effects)
                 {
                     effect.CurrentTechnique = effect.Techniques["Simplest"];
-                    effect.Parameters["xViewProjection"].SetValue(mesh.ParentBone.Transform * Transform.Combined * view * Game.ProjectionMatrix);
-                    effect.Parameters["color"].SetValue(color.ToVector4());
 
+                    effect.Parameters["xCamerasViewProjection"].SetValue(view * Game.ProjectionMatrix);
+                    //effect.Parameters["xLightsViewProjection"].SetValue(lightsViewProjectionMatrix);;
                     effect.Parameters["xWorld"].SetValue(mesh.ParentBone.Transform * Transform.Combined);
                     effect.Parameters["xLightPos"].SetValue(Game1.lightPos);
                     effect.Parameters["xLightPower"].SetValue(Game1.lightPower);
                     effect.Parameters["xAmbient"].SetValue(Game1.ambientPower);
+                    effect.Parameters["color"].SetValue(color.ToVector4());
 
-                    //effect.World = mesh.ParentBone.Transform * Transform.Combined;
-                    //effect.View = view;
-                    //effect.Projection = Game.ProjectionMatrix;
-                    //effect.DiffuseColor = this.color;
+                    //effect.Parameters["xShadowMap"].SetValue(shadowMap);
 
                     foreach (EffectPass pass in effect.CurrentTechnique.Passes)
                     {
