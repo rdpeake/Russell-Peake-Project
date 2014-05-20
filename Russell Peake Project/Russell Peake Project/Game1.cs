@@ -35,7 +35,14 @@ namespace Russell_Peake_Project
         RenderTarget2D RT_PIP1, RT_PIP2;
         bool showPIP = true;
         ActiveCamera activeCamera = ActiveCamera.Free;
-        public Matrix ProjectionMatrix;
+        private Matrix DefaultProjectionMatrix;
+        private Matrix AlternateProjectionMatrix;
+        private bool useAltProjection = false;
+        public Matrix ProjectionMatrix
+        {
+            get { return useAltProjection ? AlternateProjectionMatrix : DefaultProjectionMatrix; }
+        }
+
         Camera FreeMove, Follow, MiniMap;
         private bool pause = true;
         PhysicsManager Physics;
@@ -142,7 +149,8 @@ namespace Russell_Peake_Project
             RT_PIP2 = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight, false, SurfaceFormat.Color, DepthFormat.Depth24);
 
             //set up projection matrix
-            ProjectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45f), GraphicsDevice.Viewport.AspectRatio, 0.01f, 100.0f);
+            DefaultProjectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45f), GraphicsDevice.Viewport.AspectRatio, 0.01f, 100.0f);
+            AlternateProjectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(90f), GraphicsDevice.Viewport.AspectRatio, 0.01f, 100.0f);
 
             //create cameras
             FreeMove = new Camera(this, new Vector3(15, 0, 15), yaw: -MathHelper.ToRadians(40f), pitch: -MathHelper.ToRadians(25f));
@@ -419,9 +427,10 @@ namespace Russell_Peake_Project
         private void drawAerialCamera()
         {
             GraphicsDevice.Clear(Color.White);
-
+            this.useAltProjection = true;
             //TODO add aerial camera drawing here.
             MiniMap.draw();
+            this.useAltProjection = false;
         }
     }
 }
