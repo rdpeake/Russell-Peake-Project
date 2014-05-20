@@ -63,9 +63,12 @@ namespace Russell_Peake_Project
                     //effect.Projection = Game.ProjectionMatrix;
                     //effect.DiffuseColor = Color.Red.ToVector3();
 
+                    foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+                    {
+                        pass.Apply();
+                        mesh.Draw();
+                    }
                 }
-
-                mesh.Draw();
             }
         }
     }
