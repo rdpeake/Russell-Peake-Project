@@ -16,9 +16,9 @@ namespace Russell_Peake_Project.Elements
     {
         Game1 Game;
         Model model;
-        Vector3 color;
+        Color color;
 
-        public SolidComponent(Game1 game, Model model, Vector3 color)
+        public SolidComponent(Game1 game, Model model, Color color)
             : base ((Henge3D.Pipeline.RigidBodyModel)model.Tag)
         {
             this.Game = game;
@@ -44,7 +44,7 @@ namespace Russell_Peake_Project.Elements
                 {
                     effect.CurrentTechnique = effect.Techniques["Simplest"];
                     effect.Parameters["xViewProjection"].SetValue(mesh.ParentBone.Transform * Transform.Combined * view * Game.ProjectionMatrix);
-                    effect.Parameters["color"].SetValue(Color.Green.ToVector4());
+                    effect.Parameters["color"].SetValue(color.ToVector4());
 
                     effect.Parameters["xWorld"].SetValue(mesh.ParentBone.Transform * Transform.Combined);
                     effect.Parameters["xLightPos"].SetValue(Game1.lightPos);
