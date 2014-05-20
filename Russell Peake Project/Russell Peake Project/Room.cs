@@ -134,7 +134,7 @@ namespace Russell_Peake_Project
             Game.GraphicsDevice.RasterizerState = new RasterizerState()
             {
                 CullMode = CullMode.CullClockwiseFace
-            };
+            };  
             Game.GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
             //draw model - from demo
             _effect.View = viewMatrix;

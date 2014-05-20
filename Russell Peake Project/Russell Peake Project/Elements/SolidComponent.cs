@@ -43,7 +43,7 @@ namespace Russell_Peake_Project.Elements
                 foreach (Effect effect in mesh.Effects)
                 {
                     effect.CurrentTechnique = effect.Techniques["Simplest"];
-                    effect.Parameters["xViewProjection"].SetValue(view * Game.ProjectionMatrix);
+                    effect.Parameters["xViewProjection"].SetValue(Transform.Combined * view * Game.ProjectionMatrix);
                     effect.Parameters["color"].SetValue(Color.Green.ToVector4());
 
                     //effect.World = mesh.ParentBone.Transform * Transform.Combined;
