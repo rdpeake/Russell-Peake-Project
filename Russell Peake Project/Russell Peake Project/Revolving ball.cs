@@ -24,7 +24,7 @@ namespace Russell_Peake_Project
 
             foreach (var mesh in model.Meshes)
             {
-                foreach (BasicEffect effect in mesh.Effects)
+                foreach (Effect effect in mesh.Effects)
                 {
                     effect.EnableDefaultLighting();
                     effect.AmbientLightColor = Vector3.One * 0.75f;
