@@ -135,8 +135,8 @@ namespace Russell_Peake_Project
             };  
             Game.GraphicsDevice.SamplerStates[0] = technique == "ShadowMap" ? SamplerState.LinearClamp : SamplerState.LinearWrap;
             //draw model - from demo
-            effect.CurrentTechnique = effect.Techniques[technique + (technique == "ShadowMap" ? "" : "Textured")];
-            //effect.CurrentTechnique = effect.Techniques[(technique == "ShadowMap" ? "ShadowMap" : "SimplestTextured")];
+            //effect.CurrentTechnique = effect.Techniques[technique + (technique == "ShadowMap" ? "" : "Textured")];
+            effect.CurrentTechnique = effect.Techniques[(technique == "ShadowMap" ? "ShadowMap" : "SimplestTextured")];
 
             effect.Parameters["xCamerasViewProjection"].SetValue(viewProjection);
             effect.Parameters["xLightsViewProjection"].SetValue(Game.light.lightsViewProjectionMatrix);;
