@@ -132,9 +132,6 @@ namespace Russell_Peake_Project
 
         public void draw(bool lights)
         {
-            //todo undo light disable
-            lights = false;
-
             Vector3 look = this.Direction;
             Vector3.Add(ref _position, ref look, out look);
 
