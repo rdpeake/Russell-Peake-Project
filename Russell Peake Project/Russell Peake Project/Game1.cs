@@ -377,6 +377,7 @@ namespace Russell_Peake_Project
             {
                 spriteBatch.Draw(RT_PIP1, PIP1, Color.White);
                 spriteBatch.Draw(RT_PIP2, PIP2, Color.White);
+                spriteBatch.Draw(light, new Rectangle(0, 0, PIP1.Width, PIP1.Height), Color.White);
             }
             //TODO add HUD style code here
             spriteBatch.End();
