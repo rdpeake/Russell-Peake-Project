@@ -125,6 +125,8 @@ namespace Russell_Peake_Project
                     this.ForwardAxis = direction;
                     this.Position = at;
                     this.Move(-direction * 4f);
+                    this.Yaw = 0;
+                    this.Pitch = 0;
                 }
         }
 
