@@ -43,7 +43,7 @@ namespace Russell_Peake_Project
         PhysicsManager Physics;
 
         public Room machine;
-        Vector3 CameraCenter = new Vector3(0, 0, 10f);
+        Vector3 CameraCenter = new Vector3(0, 0, 20f);
         //Vector3 lastPosition;
 
         const int mouseCenterX = 100, mouseCenterY = 100;
