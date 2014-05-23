@@ -150,7 +150,7 @@ namespace Russell_Peake_Project
 
             //set up projection matrix
             DefaultProjectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45f), GraphicsDevice.Viewport.AspectRatio, 0.01f, 100.0f);
-            AlternateProjectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(179f), GraphicsDevice.Viewport.AspectRatio, 0.01f, 100.0f);
+            AlternateProjectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(120f), GraphicsDevice.Viewport.AspectRatio, 0.01f, 100.0f);
 
             //create cameras
             FreeMove = new Camera(this, new Vector3(15, 0, 15), yaw: -MathHelper.ToRadians(40f), pitch: -MathHelper.ToRadians(25f));
@@ -166,7 +166,7 @@ namespace Russell_Peake_Project
             Follow.MinPitch = MathHelper.ToRadians(-89.9f);
             Follow.MaxPitch = MathHelper.ToRadians(89.9f);
 
-            MiniMap = new Camera(this, new Vector3(0, 0, 15f), MathHelper.ToRadians(90f), -MathHelper.ToRadians(90f));
+            MiniMap = new Camera(this, new Vector3(0, 0, 30f), MathHelper.ToRadians(90f), -MathHelper.ToRadians(90f));
             MiniMap.UpAxis = Vector3.UnitZ;
             MiniMap.ForwardAxis = -Vector3.UnitX;
             MiniMap.MinPitch = MathHelper.ToRadians(-89.9f);
