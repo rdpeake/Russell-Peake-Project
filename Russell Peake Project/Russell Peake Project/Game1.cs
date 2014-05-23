@@ -176,6 +176,9 @@ namespace Russell_Peake_Project
             machine.initRoom();
             Physics.Add(machine);
             machine.init();
+
+            Follow.lookat(machine.TrackedObject.Location, CameraCenter);
+            FreeMove.lookat(machine.TrackedObject.Location, CameraCenter);
         }
 
         /// <summary>
