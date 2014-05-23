@@ -334,7 +334,7 @@ namespace Russell_Peake_Project
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.DepthStencilState = DepthStencilState.Default;            
-            //light.draw();
+            light.draw();
 
             //Draw PIP1
             GraphicsDevice.SetRenderTarget(RT_PIP1);
