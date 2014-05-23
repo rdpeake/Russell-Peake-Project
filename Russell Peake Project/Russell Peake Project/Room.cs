@@ -157,6 +157,7 @@ namespace Russell_Peake_Project
                 Game.GraphicsDevice.DrawUserIndexedPrimitives(PrimitiveType.TriangleList,
                     _vertices, 0, _vertices.Length, _indices, 0, _indices.Length / 3);
             }
+            Game.GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
             //-------------
             //Game.GraphicsDevice.RasterizerState = new RasterizerState() {FillMode = FillMode.WireFrame};
             Game.GraphicsDevice.RasterizerState = previous;
