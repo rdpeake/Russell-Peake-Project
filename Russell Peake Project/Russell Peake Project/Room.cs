@@ -147,12 +147,13 @@ namespace Russell_Peake_Project
 
             if (technique != "ShadowMap")
             {
-                //effect.Parameters["xShadowMap"].SetValue((Texture)Game.light);
+                effect.Parameters["xShadowMap"].SetValue((Texture)Game.light);
             }
 
             foreach (EffectPass pass in effect.CurrentTechnique.Passes)
             {
                 pass.Apply();
+                if (technique == "ShadowMap") continue;
                 Game.GraphicsDevice.DrawUserIndexedPrimitives(PrimitiveType.TriangleList,
                     _vertices, 0, _vertices.Length, _indices, 0, _indices.Length / 3);
             }
