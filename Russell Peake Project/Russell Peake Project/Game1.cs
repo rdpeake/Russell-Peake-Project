@@ -178,7 +178,7 @@ namespace Russell_Peake_Project
             machine.init();
 
             Follow.lookat(machine.TrackedObject.Location, CameraCenter);
-            FreeMove.lookat(machine.TrackedObject.Location, new Vector3(CameraCenter.X, CameraCenter.Y, machine.TrackedObject.Location.Z);
+            FreeMove.lookat(machine.TrackedObject.Location, new Vector3(CameraCenter.X, CameraCenter.Y, machine.TrackedObject.Location.Z));
         }
 
         /// <summary>
