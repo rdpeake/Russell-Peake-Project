@@ -53,8 +53,9 @@ namespace Russell_Peake_Project
 
         #endregion
         private static float _scale = 20.0f;
-        private static BasicEffect _effect;
+        private static Effect effect;
         private static VertexDeclaration _vertexDeclaration;
+        Texture2D wallTexture;
         //--------------------------
 
         //other components
@@ -76,7 +77,7 @@ namespace Russell_Peake_Project
             this.GameComponents = new List<Interfaces.IComponent>();
         }
 
-        public void initRoom()
+        public void initRoom(Effect _effect)
         {
             //set up room -- from demo
             this.Skin.DefaultMaterial = new Material(1f, 0.5f);
@@ -91,7 +92,7 @@ namespace Russell_Peake_Project
             this.SetWorld(_scale, Vector3.Zero, Quaternion.Identity);
 
             int ts = 32;
-            Texture2D wallTexture = new Texture2D(Game.GraphicsDevice, ts, ts);
+            wallTexture = new Texture2D(Game.GraphicsDevice, ts, ts);
             Color[] pixels = new Color[ts * ts];
             for (int i = 0; i < ts; i++)
             {
@@ -102,11 +103,8 @@ namespace Russell_Peake_Project
             }
             wallTexture.SetData(pixels);
 
-            _effect = new BasicEffect(Game.GraphicsDevice);
+            effect = _effect;
             _vertexDeclaration = VertexPositionNormalTexture.VertexDeclaration;
-            _effect.AmbientLightColor = Vector3.One;
-            _effect.TextureEnabled = true;
-            _effect.Texture = wallTexture;
 
         }
 
@@ -137,10 +135,19 @@ namespace Russell_Peake_Project
             };  
             Game.GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
             //draw model - from demo
-            _effect.View = viewMatrix;
-            _effect.World = Transform.Combined;
-            _effect.Projection = Game.ProjectionMatrix;
-            foreach (EffectPass pass in _effect.CurrentTechnique.Passes)
+            effect.CurrentTechnique = effect.Techniques["SimplestTextured"];
+
+            effect.Parameters["xCamerasViewProjection"].SetValue(viewMatrix * Game.ProjectionMatrix);
+            //effect.Parameters["xLightsViewProjection"].SetValue(lightsViewProjectionMatrix);;
+            effect.Parameters["xWorld"].SetValue(Transform.Combined);
+            effect.Parameters["xLightPos"].SetValue(Game1.lightPos);
+            effect.Parameters["xLightPower"].SetValue(Game1.lightPower);
+            effect.Parameters["xAmbient"].SetValue(Game1.ambientPower);
+            effect.Parameters["texture0"].SetValue(this.wallTexture);
+
+            //effect.Parameters["xShadowMap"].SetValue(shadowMap);
+
+            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
             {
                 pass.Apply();
                 Game.GraphicsDevice.DrawUserIndexedPrimitives(PrimitiveType.TriangleList,
