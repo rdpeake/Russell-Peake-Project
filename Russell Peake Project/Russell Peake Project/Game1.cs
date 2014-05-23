@@ -179,7 +179,7 @@ namespace Russell_Peake_Project
 
             Follow.lookat(machine.TrackedObject.Location, CameraCenter);
             FreeMove.lookat(machine.TrackedObject.Location, CameraCenter);
-            FreeMove.Direction = Vector3.UnitX;
+            FreeMove.Direction = Vector3.UnitY;
 
         }
 
