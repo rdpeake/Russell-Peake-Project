@@ -134,7 +134,6 @@ namespace Russell_Peake_Project
                 CullMode = CullMode.CullClockwiseFace
             };  
             Game.GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
-            Game.GraphicsDevice.SamplerStates[1] = SamplerState.LinearClamp;
             //draw model - from demo
             effect.CurrentTechnique = effect.Techniques[technique + (technique == "ShadowMap" ? "" : "Textured")];
 
