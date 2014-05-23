@@ -91,13 +91,15 @@ namespace Russell_Peake_Project
 
         private Matrix _viewMatrix;
         private Game1 Game;
+        private Matrix ProjectionMatrix;
 
-        public Camera(Game1 game, Vector3 Position, float yaw = 0.0f, float pitch = 0.0f)
+        public Camera(Game1 game, Vector3 Position, Matrix Projection,float yaw = 0.0f, float pitch = 0.0f)
         {
             _position = Position;
             Yaw = yaw;
             Pitch = pitch;
             Game = game;
+            this.ProjectionMatrix = Projection;
         }
 
         public void Move(Vector3 delta)
@@ -128,8 +130,11 @@ namespace Russell_Peake_Project
                 }
         }
 
-        public void draw()
+        public void draw(bool lights)
         {
+            //todo undo light disable
+            lights = false;
+
             Vector3 look = this.Direction;
             Vector3.Add(ref _position, ref look, out look);
 
@@ -140,7 +145,7 @@ namespace Russell_Peake_Project
                 out _viewMatrix);
 
             //loop through game.physics.bodies and draw them??
-            Game.machine.Draw(_viewMatrix);
+            Game.machine.Draw(_viewMatrix * ProjectionMatrix, lights ? "ShadowedScene" : "Simplest");
         }
 
     }

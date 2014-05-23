@@ -37,11 +37,6 @@ namespace Russell_Peake_Project
         ActiveCamera activeCamera = ActiveCamera.Free;
         private Matrix DefaultProjectionMatrix;
         private Matrix AlternateProjectionMatrix;
-        private bool useAltProjection = false;
-        public Matrix ProjectionMatrix
-        {
-            get { return useAltProjection ? AlternateProjectionMatrix : DefaultProjectionMatrix; }
-        }
 
         Camera FreeMove, Follow, MiniMap;
         private bool pause = true;
@@ -56,9 +51,8 @@ namespace Russell_Peake_Project
         bool captureMouse = false;
 
         public static Dictionary<string, Model> models;
-        public static Vector3 lightPos;
-        public static float lightPower;
         public static float ambientPower;
+        public Light light;
 
         public bool CaptureMouse
         {
@@ -127,8 +121,7 @@ namespace Russell_Peake_Project
                 Game1.models.Add(s, model);
             }
 
-            lightPos = new Vector3(0, 0, 20f);
-            lightPower = 1.0f;
+            light = new Light(this, new Vector3(0, 0, 20f), 1.0f);
             ambientPower = 0.2f;
 
             // TODO: Add your initialization logic here
@@ -153,20 +146,20 @@ namespace Russell_Peake_Project
             AlternateProjectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(120f), GraphicsDevice.Viewport.AspectRatio, 0.01f, 100.0f);
 
             //create cameras
-            FreeMove = new Camera(this, new Vector3(15, 0, 15), yaw: -MathHelper.ToRadians(40f), pitch: -MathHelper.ToRadians(25f));
+            FreeMove = new Camera(this, new Vector3(15, 0, 15), DefaultProjectionMatrix, yaw: -MathHelper.ToRadians(40f), pitch: -MathHelper.ToRadians(25f));
             FreeMove.UpAxis = Vector3.UnitZ;
             FreeMove.ForwardAxis = -Vector3.UnitX;
             FreeMove.MinPitch = MathHelper.ToRadians(-89.9f);
             FreeMove.MaxPitch = MathHelper.ToRadians(89.9f);
 
 
-            Follow = new Camera(this, new Vector3(2, 2, 0));
+            Follow = new Camera(this, new Vector3(2, 2, 0),DefaultProjectionMatrix);
             Follow.UpAxis = Vector3.UnitZ;
             Follow.ForwardAxis = -Vector3.UnitX;
             Follow.MinPitch = MathHelper.ToRadians(-89.9f);
             Follow.MaxPitch = MathHelper.ToRadians(89.9f);
 
-            MiniMap = new Camera(this, new Vector3(0, 0, 30f), MathHelper.ToRadians(90f), -MathHelper.ToRadians(90f));
+            MiniMap = new Camera(this, new Vector3(0, 0, 30f),AlternateProjectionMatrix,MathHelper.ToRadians(90f), -MathHelper.ToRadians(90f));
             MiniMap.UpAxis = Vector3.UnitZ;
             MiniMap.ForwardAxis = -Vector3.UnitX;
             MiniMap.MinPitch = MathHelper.ToRadians(-89.9f);
@@ -340,6 +333,7 @@ namespace Russell_Peake_Project
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+            light.draw();
             //Draw PIP1
             GraphicsDevice.SetRenderTarget(RT_PIP1);
             if (activeCamera != ActiveCamera.Follow)
@@ -395,7 +389,7 @@ namespace Russell_Peake_Project
             GraphicsDevice.Clear(Color.Black);
 
             //TODO add free camera drawing code here
-            FreeMove.draw();
+            FreeMove.draw(true);
         }
 
         private void drawFollowCamera()
@@ -403,16 +397,14 @@ namespace Russell_Peake_Project
             GraphicsDevice.Clear(Color.Black);
 
             //TODO add follow camera drawing here
-            Follow.draw();
+            Follow.draw(true);
         }
 
         private void drawAerialCamera()
         {
             GraphicsDevice.Clear(Color.White);
-            this.useAltProjection = true;
             //TODO add aerial camera drawing here.
-            MiniMap.draw();
-            this.useAltProjection = false;
+            MiniMap.draw(false);
         }
     }
 }

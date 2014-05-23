@@ -9,7 +9,7 @@ namespace Russell_Peake_Project.Interfaces
 {
     public interface IDrawable
     {
-        void Draw(Matrix view);
+        void Draw(Matrix viewProjection, string techique);
     }
 
     public interface IUpdateable

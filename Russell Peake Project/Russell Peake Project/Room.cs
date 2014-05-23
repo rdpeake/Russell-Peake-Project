@@ -126,7 +126,7 @@ namespace Russell_Peake_Project
 
         }
 
-        public void Draw(Matrix viewMatrix)
+        public void Draw(Matrix viewProjection, string technique)
         {
             RasterizerState previous = Game.GraphicsDevice.RasterizerState;
             Game.GraphicsDevice.RasterizerState = new RasterizerState()
@@ -137,15 +137,15 @@ namespace Russell_Peake_Project
             //draw model - from demo
             effect.CurrentTechnique = effect.Techniques["SimplestTextured"];
 
-            effect.Parameters["xCamerasViewProjection"].SetValue(viewMatrix * Game.ProjectionMatrix);
+            effect.Parameters["xCamerasViewProjection"].SetValue(viewProjection);
             //effect.Parameters["xLightsViewProjection"].SetValue(lightsViewProjectionMatrix);;
             effect.Parameters["xWorld"].SetValue(Transform.Combined);
-            effect.Parameters["xLightPos"].SetValue(Game1.lightPos);
-            effect.Parameters["xLightPower"].SetValue(Game1.lightPower);
+            effect.Parameters["xLightPos"].SetValue(Game.light.lightPos);
+            effect.Parameters["xLightPower"].SetValue(Game.light.lightPower);
             effect.Parameters["xAmbient"].SetValue(Game1.ambientPower);
             effect.Parameters["texture0"].SetValue(this.wallTexture);
 
-            //effect.Parameters["xShadowMap"].SetValue(shadowMap);
+            effect.Parameters["xShadowMap"].SetValue((Texture)Game.light);
 
             foreach (EffectPass pass in effect.CurrentTechnique.Passes)
             {
@@ -158,7 +158,7 @@ namespace Russell_Peake_Project
             Game.GraphicsDevice.RasterizerState = previous;
             foreach (Interfaces.IDrawable i in GameComponents)
             {
-                i.Draw(viewMatrix);
+                i.Draw(viewProjection, technique);
             }
         }
 
