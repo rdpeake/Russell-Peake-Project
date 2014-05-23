@@ -178,8 +178,6 @@ namespace Russell_Peake_Project
             machine.init();
 
             Follow.lookat(machine.TrackedObject.Location, CameraCenter);
-            FreeMove.lookat(machine.TrackedObject.Location, CameraCenter);
-            FreeMove.Direction = Vector3.UnitY;
 
         }
 
@@ -321,29 +319,6 @@ namespace Russell_Peake_Project
                 //update animated objects   
                 machine.Update(gameTime);
                 Follow.lookat(machine.TrackedObject.Location, CameraCenter);
-
-                ////if (lastPosition == null)
-                ////{
-                ////    lastPosition = machine.TrackedObject.Location;
-                ////}
-                ////TODO: add follow camera update logic here
-                //Vector3 direction = machine.TrackedObject.Location - CameraCenter;
-                //if (machine.TrackedObject.Location == CameraCenter)
-                //{
-                //    direction = Vector3.UnitZ;
-                //}
-                //if (direction.Length() > 0) {
-                //    direction.Normalize();
-                //    Follow.ForwardAxis = direction;
-                //    Follow.Position = machine.TrackedObject.Location;
-                //    Follow.Move(-direction * 4f);
-                //    //Follow.Position += -Follow.UpAxis + Follow.SideAxis;
-                //    //Follow.Yaw = MathHelper.ToRadians(00f);
-                //    //Follow.Pitch = MathHelper.ToRadians(-30f);
-                //}
-
-                //remember new position
-                //lastPosition = machine.TrackedObject.Location;
             }
 
             
