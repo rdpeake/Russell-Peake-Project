@@ -153,7 +153,7 @@ namespace Russell_Peake_Project
             foreach (EffectPass pass in effect.CurrentTechnique.Passes)
             {
                 pass.Apply();
-                if (technique == "ShadowMap") continue;
+                //if (technique == "ShadowMap") continue;
                 Game.GraphicsDevice.DrawUserIndexedPrimitives(PrimitiveType.TriangleList,
                     _vertices, 0, _vertices.Length, _indices, 0, _indices.Length / 3);
             }
