@@ -171,7 +171,7 @@ namespace Russell_Peake_Project
             machine.init();
 
             Follow.lookat(machine.TrackedObject.Location, CameraCenter);
-
+            light.update(machine.TrackedObject.Location);
         }
 
         /// <summary>
