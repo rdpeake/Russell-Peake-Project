@@ -54,7 +54,7 @@ namespace Russell_Peake_Project.Elements
 
                     if (technique != "ShadowMap")
                     {
-                        effect.Parameters["xShadowMap"].SetValue((Texture)Game.light);
+                        //effect.Parameters["xShadowMap"].SetValue((Texture)Game.light);
                     }
 
                     foreach (EffectPass pass in effect.CurrentTechnique.Passes)
