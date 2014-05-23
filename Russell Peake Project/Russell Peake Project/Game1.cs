@@ -312,6 +312,7 @@ namespace Russell_Peake_Project
                 //update animated objects   
                 machine.Update(gameTime);
                 Follow.lookat(machine.TrackedObject.Location, CameraCenter);
+                light.update(ballPos);
             }
 
             
