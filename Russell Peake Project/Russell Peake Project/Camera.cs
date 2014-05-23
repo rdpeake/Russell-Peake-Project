@@ -112,6 +112,22 @@ namespace Russell_Peake_Project
             }
         }
 
+        public void lookat(Vector3 at, Vector3 from)
+        {
+            Vector3 direction = at - from;
+                if (at == from)
+                {
+                    direction = Vector3.UnitZ;
+                }
+                if (direction.Length() > 0)
+                {
+                    direction.Normalize();
+                    this.ForwardAxis = direction;
+                    this.Position = at;
+                    this.Move(-direction * 4f);
+                }
+        }
+
         public void draw()
         {
             Vector3 look = this.Direction;
