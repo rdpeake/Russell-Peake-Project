@@ -150,7 +150,7 @@ namespace Russell_Peake_Project
 
             //set up projection matrix
             DefaultProjectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45f), GraphicsDevice.Viewport.AspectRatio, 0.01f, 100.0f);
-            AlternateProjectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(30f), GraphicsDevice.Viewport.AspectRatio, 0.01f, 100.0f);
+            AlternateProjectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(179f), GraphicsDevice.Viewport.AspectRatio, 0.01f, 100.0f);
 
             //create cameras
             FreeMove = new Camera(this, new Vector3(15, 0, 15), yaw: -MathHelper.ToRadians(40f), pitch: -MathHelper.ToRadians(25f));
