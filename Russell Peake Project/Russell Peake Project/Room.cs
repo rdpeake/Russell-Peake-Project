@@ -135,17 +135,20 @@ namespace Russell_Peake_Project
             };  
             Game.GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
             //draw model - from demo
-            effect.CurrentTechnique = effect.Techniques["SimplestTextured"];
+            effect.CurrentTechnique = effect.Techniques[technique + "Textured"];
 
             effect.Parameters["xCamerasViewProjection"].SetValue(viewProjection);
-            //effect.Parameters["xLightsViewProjection"].SetValue(lightsViewProjectionMatrix);;
+            effect.Parameters["xLightsViewProjection"].SetValue(Game.light.lightsViewProjectionMatrix);;
             effect.Parameters["xWorld"].SetValue(Transform.Combined);
             effect.Parameters["xLightPos"].SetValue(Game.light.lightPos);
             effect.Parameters["xLightPower"].SetValue(Game.light.lightPower);
             effect.Parameters["xAmbient"].SetValue(Game1.ambientPower);
             effect.Parameters["texture0"].SetValue(this.wallTexture);
 
-            effect.Parameters["xShadowMap"].SetValue((Texture)Game.light);
+            if (technique != "ShadowMap")
+            {
+                effect.Parameters["xShadowMap"].SetValue((Texture)Game.light);
+            }
 
             foreach (EffectPass pass in effect.CurrentTechnique.Passes)
             {

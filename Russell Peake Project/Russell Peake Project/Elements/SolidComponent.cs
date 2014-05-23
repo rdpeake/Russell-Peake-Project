@@ -45,14 +45,17 @@ namespace Russell_Peake_Project.Elements
                     effect.CurrentTechnique = effect.Techniques[technique];
 
                     effect.Parameters["xCamerasViewProjection"].SetValue(viewProjection);
-                    //effect.Parameters["xLightsViewProjection"].SetValue(lightsViewProjectionMatrix);;
+                    effect.Parameters["xLightsViewProjection"].SetValue(Game.light.lightsViewProjectionMatrix);;
                     effect.Parameters["xWorld"].SetValue(mesh.ParentBone.Transform * Transform.Combined);
                     effect.Parameters["xLightPos"].SetValue(Game.light.lightPos);
                     effect.Parameters["xLightPower"].SetValue(Game.light.lightPower);
                     effect.Parameters["xAmbient"].SetValue(Game1.ambientPower);
                     effect.Parameters["color"].SetValue(color.ToVector4());
 
-                    effect.Parameters["xShadowMap"].SetValue((Texture)Game.light);
+                    if (technique != "ShadowMap")
+                    {
+                        effect.Parameters["xShadowMap"].SetValue((Texture)Game.light);
+                    }
 
                     foreach (EffectPass pass in effect.CurrentTechnique.Passes)
                     {
