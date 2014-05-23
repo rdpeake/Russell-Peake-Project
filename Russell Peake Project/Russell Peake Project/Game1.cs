@@ -122,7 +122,7 @@ namespace Russell_Peake_Project
             }
 
             light = new Light(this, new Vector3(0, 0, 20f), 1.0f);
-            ambientPower = 0.2f;
+            ambientPower = 0.05f;
 
             // TODO: Add your initialization logic here
 
