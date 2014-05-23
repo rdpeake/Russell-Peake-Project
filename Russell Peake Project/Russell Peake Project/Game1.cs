@@ -121,8 +121,8 @@ namespace Russell_Peake_Project
                 Game1.models.Add(s, model);
             }
 
-            light = new Light(this, new Vector3(0, 0, 20f), 1.0f);
-            ambientPower = 0.05f;
+            light = new Light(this, new Vector3(0, 0, 20f), 3.0f);
+            ambientPower = 0.2f;
 
             // TODO: Add your initialization logic here
 
