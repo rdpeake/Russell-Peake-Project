@@ -143,6 +143,9 @@ namespace Russell_Peake_Project
 
             //loop through game.physics.bodies and draw them??
             Game.machine.Draw(_viewMatrix * ProjectionMatrix, lights ? "ShadowedScene" : "Simplest");
+            if (lights) {
+                Game.light.drawLight(_viewMatrix * ProjectionMatrix);
+            }
         }
 
     }
