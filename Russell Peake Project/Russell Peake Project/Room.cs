@@ -155,8 +155,8 @@ namespace Russell_Peake_Project
             {
                 pass.Apply();
                 //if (technique == "ShadowMap") continue;
-                //Game.GraphicsDevice.DrawUserIndexedPrimitives(PrimitiveType.TriangleList,
-                //    _vertices, 0, _vertices.Length, _indices, 0, _indices.Length / 3);
+                Game.GraphicsDevice.DrawUserIndexedPrimitives(PrimitiveType.TriangleList,
+                    _vertices, 0, _vertices.Length, _indices, 0, _indices.Length / 3);
             }
             Game.GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
             //-------------
