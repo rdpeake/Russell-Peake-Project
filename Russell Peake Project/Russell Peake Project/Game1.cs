@@ -121,7 +121,7 @@ namespace Russell_Peake_Project
                 Game1.models.Add(s, model);
             }
 
-            light = new Light(this, new Vector3(0, 0, 20f), 2.0f);
+            light = new Light(this, new Vector3(0, 0, 20f), 2.0f, e);
             ambientPower = 0.2f;
 
             // TODO: Add your initialization logic here
@@ -334,7 +334,7 @@ namespace Russell_Peake_Project
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.DepthStencilState = DepthStencilState.Default;            
-            light.draw();
+            light.drawShadowMap();
 
             //Draw PIP1
             GraphicsDevice.SetRenderTarget(RT_PIP1);
