@@ -88,7 +88,7 @@
       <Importer>FbxImporter</Importer>
       <Processor>RigidBodyModelProcessor</Processor>
       <ProcessorParameters_DefaultElasticity>0.8</ProcessorParameters_DefaultElasticity>
-      <ProcessorParameters_DefaultShape>Capsule</ProcessorParameters_DefaultShape>
+      <ProcessorParameters_DefaultShape>Mesh</ProcessorParameters_DefaultShape>
     </Compile>
   </ItemGroup>
   <ItemGroup>
