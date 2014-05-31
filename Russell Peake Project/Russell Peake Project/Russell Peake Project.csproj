@@ -75,6 +75,7 @@
     <Compile Include="Camera.cs" />
     <Compile Include="Elements\Element.cs" />
     <Compile Include="Elements\Element1.cs" />
+    <Compile Include="Elements\Element2.cs" />
     <Compile Include="Elements\SolidComponent.cs" />
     <Compile Include="Interfaces\interfaces.cs" />
     <Compile Include="Light.cs" />

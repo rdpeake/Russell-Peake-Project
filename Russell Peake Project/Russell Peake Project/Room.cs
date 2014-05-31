@@ -123,6 +123,8 @@ namespace Russell_Peake_Project
 
             Elements.Element e = new Elements.Element1(Game, Physics);
             GameComponents.Add(e);
+            e = new Elements.Element2(Game, Physics);
+            GameComponents.Add(e);
 
         }
 
