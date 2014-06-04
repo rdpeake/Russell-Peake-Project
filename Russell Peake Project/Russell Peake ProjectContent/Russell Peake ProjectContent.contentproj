@@ -89,6 +89,7 @@
       <Processor>RigidBodyModelProcessor</Processor>
       <ProcessorParameters_DefaultElasticity>0.8</ProcessorParameters_DefaultElasticity>
       <ProcessorParameters_DefaultRoughness>0.2</ProcessorParameters_DefaultRoughness>
+      <ProcessorParameters_DefaultShape>Mesh</ProcessorParameters_DefaultShape>
     </Compile>
   </ItemGroup>
   <ItemGroup>
