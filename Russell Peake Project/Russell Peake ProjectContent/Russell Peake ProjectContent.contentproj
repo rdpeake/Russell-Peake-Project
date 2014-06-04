@@ -61,6 +61,7 @@
       <Importer>FbxImporter</Importer>
       <Processor>RigidBodyModelProcessor</Processor>
       <ProcessorParameters_DefaultElasticity>2.5</ProcessorParameters_DefaultElasticity>
+      <ProcessorParameters_DefaultShape>Mesh</ProcessorParameters_DefaultShape>
     </Compile>
     <Compile Include="slab.fbx">
       <Name>slab</Name>
