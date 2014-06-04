@@ -60,6 +60,7 @@
       <Name>obelisk</Name>
       <Importer>FbxImporter</Importer>
       <Processor>RigidBodyModelProcessor</Processor>
+      <ProcessorParameters_DefaultElasticity>2.5</ProcessorParameters_DefaultElasticity>
     </Compile>
     <Compile Include="slab.fbx">
       <Name>slab</Name>
