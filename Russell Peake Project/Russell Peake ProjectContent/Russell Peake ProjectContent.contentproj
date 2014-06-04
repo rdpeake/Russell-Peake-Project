@@ -36,6 +36,7 @@
       <Importer>FbxImporter</Importer>
       <Processor>RigidBodyModelProcessor</Processor>
       <ProcessorParameters_DefaultElasticity>0.9</ProcessorParameters_DefaultElasticity>
+      <ProcessorParameters_DefaultRoughness>0.2</ProcessorParameters_DefaultRoughness>
     </Compile>
   </ItemGroup>
   <ItemGroup>
