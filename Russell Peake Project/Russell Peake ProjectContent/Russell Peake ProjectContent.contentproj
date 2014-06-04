@@ -89,7 +89,6 @@
       <Importer>FbxImporter</Importer>
       <Processor>RigidBodyModelProcessor</Processor>
       <ProcessorParameters_DefaultElasticity>0.3</ProcessorParameters_DefaultElasticity>
-      <ProcessorParameters_DefaultRoughness>0.1</ProcessorParameters_DefaultRoughness>
       <ProcessorParameters_DefaultShape>Mesh</ProcessorParameters_DefaultShape>
     </Compile>
   </ItemGroup>
