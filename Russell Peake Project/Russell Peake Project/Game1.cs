@@ -334,7 +334,7 @@ namespace Russell_Peake_Project
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.DepthStencilState = DepthStencilState.Default;
-            GraphicsDevice.BlendState = BlendState.Additive;
+            GraphicsDevice.BlendState = BlendState.NonPremultiplied;
             light.drawShadowMap();
 
             //Draw PIP1
