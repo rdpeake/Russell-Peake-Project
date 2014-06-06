@@ -333,7 +333,8 @@ namespace Russell_Peake_Project
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.DepthStencilState = DepthStencilState.Default;            
+            GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+            GraphicsDevice.BlendState = BlendState.AlphaBlend;
             light.drawShadowMap();
 
             //Draw PIP1
