@@ -62,7 +62,7 @@ namespace Russell_Peake_Project
         List<Interfaces.IComponent> GameComponents;
 
         //trackable object
-        public Interfaces.ITrackable TrackedObject { get; private set; }
+        public Interfaces.ITrackable TrackedObject { get; internal set; }
 
         //the Physics scene
         PhysicsManager Physics;
@@ -124,6 +124,8 @@ namespace Russell_Peake_Project
             Elements.Element e = new Elements.Element1(Game, Physics);
             GameComponents.Add(e);
             e = new Elements.Element2(Game, Physics);
+            GameComponents.Add(e);
+            e = new Elements.Element3(Game, Physics);
             GameComponents.Add(e);
 
         }
