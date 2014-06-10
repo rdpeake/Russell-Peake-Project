@@ -62,6 +62,7 @@
       <Processor>RigidBodyModelProcessor</Processor>
       <ProcessorParameters_DefaultElasticity>0.6</ProcessorParameters_DefaultElasticity>
       <ProcessorParameters_DefaultShape>Mesh</ProcessorParameters_DefaultShape>
+      <ProcessorParameters_DefaultDensity>0.8</ProcessorParameters_DefaultDensity>
     </Compile>
     <Compile Include="slab.fbx">
       <Name>slab</Name>
