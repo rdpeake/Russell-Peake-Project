@@ -108,7 +108,7 @@ namespace Russell_Peake_Project
             //initialise models
             Effect e = Content.Load<Effect>("effect1");
             Game1.models = new Dictionary<string, Model>();
-            foreach (string s in "sphere,slab,rail,obelisk".Split(','))
+            foreach (string s in "sphere,slab,rail,obelisk,small_cube".Split(','))
             {
                 Model model = Content.Load<Model>(s);
                 foreach (ModelMesh mesh in model.Meshes)

@@ -76,6 +76,8 @@
     <Compile Include="Elements\Element.cs" />
     <Compile Include="Elements\Element1.cs" />
     <Compile Include="Elements\Element2.cs" />
+    <Compile Include="Elements\Element4.cs" />
+    <Compile Include="Elements\Element5.cs" />
     <Compile Include="Elements\Element3.cs" />
     <Compile Include="Elements\SolidComponent.cs" />
     <Compile Include="Elements\TrackOnMove.cs" />

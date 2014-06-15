@@ -127,7 +127,10 @@ namespace Russell_Peake_Project
             GameComponents.Add(e);
             e = new Elements.Element3(Game, Physics);
             GameComponents.Add(e);
-
+            e = new Elements.Element4(Game, Physics);
+            GameComponents.Add(e);
+            e = new Elements.Element5(Game, Physics);
+            GameComponents.Add(e);
         }
 
         public void Draw(Matrix viewProjection, string technique)
