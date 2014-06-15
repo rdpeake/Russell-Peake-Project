@@ -74,6 +74,7 @@
       <Name>small_cube</Name>
       <Importer>FbxImporter</Importer>
       <Processor>RigidBodyModelProcessor</Processor>
+      <ProcessorParameters_DefaultRoughness>1</ProcessorParameters_DefaultRoughness>
     </Compile>
     <Compile Include="torus.fbx">
       <Name>torus</Name>
