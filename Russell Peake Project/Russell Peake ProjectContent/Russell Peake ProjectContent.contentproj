@@ -40,7 +40,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Henge3D_201011\Pipeline\Pipeline.csproj">
+    <ProjectReference Include="..\..\Henge3D_201011\Pipeline\Pipeline.csproj">
       <Project>{3086e95c-5a76-4e06-a494-f61c2b71fea2}</Project>
       <Name>Pipeline</Name>
     </ProjectReference>

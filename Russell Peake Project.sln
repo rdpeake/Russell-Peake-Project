@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30324.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Russell Peake Project", "Russell Peake Project\Russell Peake Project\Russell Peake Project.csproj", "{BBA24B27-B4D7-4E95-B27D-FC17DFF611BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Russell Peake ProjectContent", "Russell Peake Project\Russell Peake ProjectContent\Russell Peake ProjectContent.contentproj", "{535A5118-92FE-45C4-8E8A-D300F4404222}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Physics", "..\Henge3D_201011\Physics\Physics.csproj", "{888DC669-1E80-4AFD-895B-4B6A0751A07C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Physics", "Henge3D_201011\Physics\Physics.csproj", "{888DC669-1E80-4AFD-895B-4B6A0751A07C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipeline", "..\Henge3D_201011\Pipeline\Pipeline.csproj", "{3086E95C-5A76-4E06-A494-F61C2B71FEA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipeline", "Henge3D_201011\Pipeline\Pipeline.csproj", "{3086E95C-5A76-4E06-A494-F61C2B71FEA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

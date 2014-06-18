@@ -96,7 +96,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Henge3D_201011\Physics\Physics.csproj">
+    <ProjectReference Include="..\..\Henge3D_201011\Physics\Physics.csproj">
       <Project>{888dc669-1e80-4afd-895b-4b6a0751a07c}</Project>
       <Name>Physics</Name>
     </ProjectReference>
